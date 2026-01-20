@@ -1,4 +1,8 @@
 # Clamshell Learning Platform
+![License: MIT](https://img.shields.io/github/license/Surbhi1244/Clamshell)
+![Top Language](https://img.shields.io/github/languages/top/Surbhi1244/Clamshell)
+![Last Commit](https://img.shields.io/github/last-commit/Surbhi1244/Clamshell)
+
 
 A frontend web project inspired by **Clamshell Learning**, created to showcase a clean, modern, and user-friendly learning platform interface using core frontend technologies.
 
