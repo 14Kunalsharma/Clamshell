@@ -389,3 +389,11 @@ body {
     font-size: 28px;
   }
 }
+
+.border {
+    border: 1.5px solid transparent;
+}
+
+.border:hover {
+    border: 1.5px solid white;
+}
