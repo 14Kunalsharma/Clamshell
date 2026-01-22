@@ -86,3 +86,5 @@ document.querySelectorAll('.card').forEach(card => {
     }
   });
 });
+
+window.location.href = link;
