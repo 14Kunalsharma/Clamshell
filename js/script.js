@@ -1,25 +1,27 @@
 document.getElementById("login-btn").addEventListener("click", function () {
   const btn = this;
+  const formBox = document.querySelector(".login-form-hidden");
 
+  // STEP 1: Login click → show form
+  if (btn.innerText === "Login") {
+    formBox.style.display = "block";
+    btn.innerText = "Continue";
+    return;
+  }
+
+  // STEP 2: Continue click → validate
   const userId = document.getElementById("user-id").value.trim();
   const password = document.getElementById("password").value.trim();
 
-  // ❌ agar empty hai
   if (userId === "" || password === "") {
     alert("Please enter User ID and Password");
     return;
   }
 
-  // ✅ pehla valid click
-  if (btn.innerText === "Login") {
-    btn.innerText = "Continue";
-    document.querySelector(".login-form-hidden").style.display = "block";
-  }
-  // ✅ dusra click
-  else {
-    window.location.href = "main-dashboard.html";
-  }
+  // STEP 3: Redirect
+  window.location.href = "main-dashboard.html";
 });
+
 
 // sidebar items
 const items = document.querySelectorAll(".products li");
