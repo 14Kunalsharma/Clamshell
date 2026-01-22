@@ -448,11 +448,21 @@ body {
   transform: scale(1.08);
 }
 
+.products li.active {
+  background-color: #7b46c8;
+  color: white;
+  cursor: pointer;
+}
+
 .products li {
   cursor: pointer;
 }
 
-.products li:hover {
-  color: #000;
-  font-weight: 600;
+#content-area {
+  background: #fff;
+  padding: 20px;
+  min-height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
