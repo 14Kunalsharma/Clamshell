@@ -447,3 +447,13 @@ body {
   transform: scale(1.08);
 }
 
+.sidebar-link {
+  text-decoration: none;
+  color: #666;
+  display: block;
+  cursor: pointer;
+}
+
+.sidebar-link:hover {
+  color: #111;
+}
