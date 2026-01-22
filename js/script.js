@@ -11,3 +11,12 @@ document.getElementById('login-btn').addEventListener('click', function () {
   }
 });
 
+const items = document.querySelectorAll(".products li");
+  const pages = document.querySelectorAll(".page");
+
+  items.forEach(item => {
+    item.addEventListener("click", () => {
+      pages.forEach(p => p.classList.remove("active"));
+      document.getElementById(item.dataset.page).classList.add("active");
+    });
+  });
