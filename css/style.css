@@ -296,6 +296,10 @@ body {
   border-radius: 16px;
 }
 
+.card.pink:hover img {
+  transform: scale(1.08);
+}
+
 .card.yellow { 
   background: linear-gradient(120deg,#F7F7F7, #858585 ); 
   overflow: hidden;
@@ -418,9 +422,6 @@ body {
     border: 1.5px solid Black;
 }
 
-.card.pink:hover img {
-  transform: scale(1.08);
-}
 .card.yellow:hover img {
   transform: scale(1.08);
 }
