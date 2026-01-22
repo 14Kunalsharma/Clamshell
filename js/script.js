@@ -12,11 +12,30 @@ document.getElementById('login-btn').addEventListener('click', function () {
 });
 
 const items = document.querySelectorAll(".products li");
-  const pages = document.querySelectorAll(".page");
+const content = document.getElementById("content-area");
 
-  items.forEach(item => {
-    item.addEventListener("click", () => {
-      pages.forEach(p => p.classList.remove("active"));
-      document.getElementById(item.dataset.page).classList.add("active");
-    });
+const pages = {
+  welcome: `
+    <h1>Welcome Nancy!</h1>
+    <p>This is the welcome screen.</p>
+  `,
+  language: `
+    <h1>Language Select</h1>
+    <p>Select your preferred language.</p>
+  `,
+  role: `
+    <h1>Role Selection</h1>
+    <p>Select your role.</p>
+  `,
+  attestation: `
+    <h1>Attestation</h1>
+    <p>Please confirm your details.</p>
+  `
+};
+
+items.forEach(item => {
+  item.addEventListener("click", () => {
+    const key = item.dataset.page;
+    content.innerHTML = pages[key];
   });
+});
