@@ -449,7 +449,7 @@ body {
 }
 
 .products li.active {
-  background-color: #7b46c8;
+  background-color: #ADD8E6;
   color: white;
   cursor: pointer;
 }
