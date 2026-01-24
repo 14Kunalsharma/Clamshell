@@ -448,14 +448,10 @@ body {
   transform: scale(1.08);
 }
 
-.products li.active {
-  background-color: #ADD8E6;
-  color: white;
-  cursor: pointer;
-}
-
 .products li {
   cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 6px;
 }
 
 #content-area {
