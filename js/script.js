@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const userId = document.getElementById("user-id").value.trim();
-      const password = document.getElementById("password").value.trim();
+      const userId = document.getElementById("user-id")?.value.trim();
+      const password = document.getElementById("password")?.value.trim();
 
-      if (userId === "" || password === "") {
+      if (!userId || !password) {
         alert("Please enter User ID and Password");
         return;
       }
@@ -30,14 +30,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===============================
-     SIDEBAR NAVIGATION
+     DASHBOARD VARIABLES
   ================================ */
 
   const items = document.querySelectorAll(".products li");
   const contentArea = document.getElementById("content-area");
   const dashboardCards = document.querySelector(".cards");
+  const allProductsBtn = document.getElementById("all-products-btn");
 
-  // DEFAULT → Welcome Nancy
+  /* ===============================
+     DEFAULT PAGE → Welcome Nancy
+  ================================ */
+
   if (contentArea) {
     contentArea.innerHTML = `
       <section class="welcome-card">
@@ -47,7 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  // Sidebar Click
+  if (dashboardCards) {
+    dashboardCards.style.display = "grid";
+  }
+
+  /* ===============================
+     SIDEBAR MENU CLICK
+  ================================ */
+
   items.forEach(item => {
     item.addEventListener("click", () => {
 
@@ -56,12 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
       items.forEach(i => i.classList.remove("active"));
       item.classList.add("active");
 
-      // Hide cards when clicking any menu
+      // Hide cards for all sidebar pages
       if (dashboardCards) {
         dashboardCards.style.display = "none";
       }
 
-      // Welcome Select Page
       if (page === "welcome") {
         contentArea.innerHTML = `
           <h2>Welcome Select</h2>
@@ -82,11 +92,34 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       else {
-        contentArea.innerHTML = `<p>Page Coming Soon...</p>`;
+        contentArea.innerHTML = `<h2>Page Coming Soon...</h2>`;
       }
 
     });
   });
+
+  /* ===============================
+     ALL PRODUCTS CLICK → SHOW CARDS
+  ================================ */
+
+  if (allProductsBtn) {
+    allProductsBtn.addEventListener("click", () => {
+
+      items.forEach(i => i.classList.remove("active"));
+
+      contentArea.innerHTML = `
+        <section class="welcome-card">
+          <h1>Welcome Nancy!</h1>
+          <p>Select a module from the sidebar.</p>
+        </section>
+      `;
+
+      if (dashboardCards) {
+        dashboardCards.style.display = "grid";
+      }
+
+    });
+  }
 
   /* ===============================
      CARD CLICK NAVIGATION
