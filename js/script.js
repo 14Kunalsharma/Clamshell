@@ -57,104 +57,17 @@ function showWelcomeNancy() {
       <h1>Welcome Nancy!</h1>
 
       <div class="tags">
-        <span>Storyline</span>
-        <span>HTML</span>
-        <span>Articulate</span>
-        <span>Figma</span>
-        <span>SB Link</span>
-        <span>VSB</span>
-        <span>PSD</span>
-        <span>SL Source</span>
-        <span>SL Link</span>
-      </div>
-    </section>
-  `;
 
-  if (cardsSection) cardsSection.style.display = "grid";
-}
+        <div class="t1">
+          <span>Storyline</span>
+          <span>HTML</span>
+          <span>Articulate</span>
+          <span>Figma</span>
+          <span>SB Link</span>
+        </div>
 
-function showWelcomeSelect() {
-
-  contentArea.innerHTML = `
-    <section class="welcome-card">
-      <h1>Welcome Select</h1>
-    </section>
-  `;
-
-  if (cardsSection) cardsSection.style.display = "none";
-}
-
-function simplePage(title) {
-
-  contentArea.innerHTML = `
-    <section class="welcome-card">
-      <h1>${title}</h1>
-    </section>
-  `;
-
-  if (cardsSection) cardsSection.style.display = "none";
-}
-
-/* =====================================================
-    SIDEBAR CLICK
-===================================================== */
-
-items.forEach(item => {
-
-  item.addEventListener("click", () => {
-
-    const page = item.dataset.page;
-
-    items.forEach(i => i.classList.remove("active"));
-    item.classList.add("active");
-
-    if (page === "welcome") {
-      showWelcomeSelect();
-    }
-
-    else if (page === "language") {
-      simplePage("Language Select");
-    }
-
-    else if (page === "role") {
-      simplePage("Role Selection");
-    }
-
-    else if (page === "attestation") {
-      simplePage("Attestation");
-    }
-
-    else {
-      simplePage("Coming Soon");
-    }
-
-  });
-
-});
-
-/* =====================================================
-    ALL PRODUCTS BUTTON
-===================================================== */
-
-if (allProductsBtn) {
-  allProductsBtn.addEventListener("click", () => {
-    items.forEach(i => i.classList.remove("active"));
-    showWelcomeNancy();
-  });
-}
-
-/* =====================================================
-    CARD CLICK
-===================================================== */
-
-document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("click", () => {
-    const link = card.dataset.link;
-    if (link) {
-      window.location.href = link;
-    }
-  });
-});
-
-});
+        <div class="t2">
+          <span>VSB</span>
+          <span>PSD</span>
+          <span>SL Source</span>
 
