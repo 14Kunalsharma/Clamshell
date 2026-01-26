@@ -30,16 +30,16 @@ if (loginBtn) {
 }
 
 /* =====================================================
-    DASHBOARD ELEMENTS
+    ELEMENTS
 ===================================================== */
 
 const items = document.querySelectorAll(".products li");
 const contentArea = document.getElementById("content-area");
-const cardsSection = document.querySelector(".cards");
+const mainCards = document.querySelector(".cards");
 const allProductsBtn = document.getElementById("all-products-btn");
 
 /* =====================================================
-    DEFAULT LOAD
+    LOAD DEFAULT
 ===================================================== */
 
 if (contentArea) {
@@ -57,7 +57,6 @@ function showWelcomeNancy() {
       <h1>Welcome Nancy!</h1>
 
       <div class="tags">
-
         <div class="t1">
           <span>Storyline</span>
           <span>HTML</span>
@@ -72,12 +71,11 @@ function showWelcomeNancy() {
           <span>SL Source</span>
           <span>SL Link</span>
         </div>
-
       </div>
     </section>
   `;
 
-  if (cardsSection) cardsSection.style.display = "grid";
+  if (mainCards) mainCards.style.display = "grid";
 }
 
 function showWelcomeSelect() {
@@ -88,27 +86,25 @@ function showWelcomeSelect() {
     </section>
   `;
 
-  if (cardsSection) cardsSection.style.display = "none";
+  if (mainCards) mainCards.style.display = "none";
 }
 
-function simplePage(title) {
+function showSingleCardPage(title) {
 
   contentArea.innerHTML = `
     <section class="welcome-card">
       <h1>${title}</h1>
-
-      <div class="cards">
-
-        <div class="card pink">
-          <h4>${title} Card</h4>
-          <p>This is a sample card</p>
-        </div>
-
-      </div>
     </section>
+
+    <div class="cards">
+      <div class="card pink">
+        <h4>${title}</h4>
+        <p>This is ${title} main card</p>
+      </div>
+    </div>
   `;
 
-  if (cardsSection) cardsSection.style.display = "none";
+  if (mainCards) mainCards.style.display = "none";
 }
 
 /* =====================================================
@@ -129,19 +125,19 @@ items.forEach(item => {
     }
 
     else if (page === "language") {
-      simplePage("Language Select");
+      showSingleCardPage("Language Select");
     }
 
     else if (page === "role") {
-      simplePage("Role Selection");
+      showSingleCardPage("Role Selection");
     }
 
     else if (page === "attestation") {
-      simplePage("Attestation");
+      showSingleCardPage("Attestation");
     }
 
     else {
-      simplePage("Coming Soon");
+      showSingleCardPage("Coming Soon");
     }
 
   });
@@ -163,15 +159,15 @@ if (allProductsBtn) {
     CARD CLICK
 ===================================================== */
 
-document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("click", () => {
-    const link = card.dataset.link;
-    if (link) {
-      window.location.href = link;
-    }
-  });
-});
+document.body.addEventListener("click", function(e){
+
+  const card = e.target.closest(".card");
+
+  if(card && card.dataset.link){
+    window.location.href = card.dataset.link;
+  }
 
 });
 
+});
 
