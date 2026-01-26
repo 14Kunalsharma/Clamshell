@@ -2,268 +2,274 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clamshell Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clamshell Dashboard</title>
 
-  <!-- Inter Font -->
-  <link rel="preconnect" href="https://rsms.me/">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
 
-  <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-  <div class="dashboard">
-    <div class="sidebar">
-      <div>
-        <img class="logo" src="assets/Logo Icon 1.png" alt="Logo">
-      </div>
-      <div class="icon-column">
-        <div class="icon-item">
-          <i class="fas fa-home">
+    <div class="dashboard">
+        <div class="sidebar">
+            <div>
+                <img class="logo" src="assets/Logo Icon 1.png" alt="Logo">
+            </div>
+            <div class="icon-column">
+                <div class="icon-item">
+                    <i class="fas fa-home">
 
-          </i>
+                    </i>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-search"><img src="assets/Home.svg" alt="Logo"></i>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-user"><img src="assets/Message.svg" alt="Logo"></i>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-cog"><img src="assets/notifications_none_24px.svg" alt="Logo"></i>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-cog"><img src="assets/person_outline_24px.svg" alt="Logo"></i>
+                </div>
+            </div>
+
         </div>
-        <div class="icon-item">
-          <i class="fas fa-search"><img  src="assets/Home.svg" alt="Logo"></i>
-        </div>
-        <div class="icon-item">
-          <i class="fas fa-user"><img src="assets/Message.svg" alt="Logo"></i>
-        </div>
-        <div class="icon-item">
-          <i class="fas fa-cog"><img src="assets/notifications_none_24px.svg" alt="Logo"></i>
-        </div>
-        <div class="icon-item">
-          <i class="fas fa-cog"><img src="assets/person_outline_24px.svg" alt="Logo"></i>
-        </div>
-      </div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-body">
+
+                <input class="search" placeholder="Search..." />
+
+                <div class="sidebar-section">
+                    <h6>⭐ Companies</h6>
+                    <ul>
+                        <li>Mondelez</li>
+                        <li>Mondelez</li>
+                        <li>Mondelez</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h6 id="all-products-btn">🔴 All Products</h6>
+                    <ul class="products">
+                        <li data-page="welcome">Welcome Select</li>
+                        <li data-page="language">Language Select</li>
+                        <li data-page="role">Role Selection</li>
+                        <li data-page="attestation">Attestation</li>
+                        <li data-page="visual">Visual Menu</li>
+                        <li data-page="overview">Overview</li>
+                        <li data-page="objectives">Objectives</li>
+                        <li data-page="animations">Animations</li>
+                        <li data-page="imageclick">Image click and learn</li>
+                        <li data-page="buttonclick">Button click and learn</li>
+                        <li data-page="tabclick">Tab click and learn</li>
+                        <li data-page="carousel">Carousel</li>
+                        <li data-page="timeline">Timeline</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <!-- MAIN CONTENT -->
+        <main class="content">
+            <div id="content-area"></div>
+            <div class="tags">
+                <div class="t1"><span data-link="lowcode.html">Storyline</span>
+                    <span>HTML</span>
+                    <span>Articulate</span>
+                    <span>Figma</span>
+                    <span>SB Link</span>
+                </div>
+                <div class="t2">
+                    <span>VSB</span>
+                    <span>PSD</span>
+                    <span>SL Source</span>
+                    <span>SL Link</span>
+                </div>
+            </div>
+            <!-- TABS -->
+            <section class="tabs">
+                <span class="active">Recently Added ●</span>
+                <span>HTML Links</span>
+                <span>Master Docs</span>
+                <span>Storyline</span>
+            </section>
+
+            <!-- CARDS GRID -->
+            <section class="cards">
+                <div class="card pink" data-link="lowcode.html">
+                    <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png" alt="course image" />
+                    <h4 class="code">Low Code No Code</h4>
+                    <p class="code-p">Introducing a simplified approach to building applications without coding
+                        complexities.</p>
+                    <div class="card-tags">
+                        <span>SL Link</span>
+                        <span class="source">SL Source</span>
+                        <span>Figma</span>
+                        <span>Sourcefile</span>
+                        <span>HTML</span>
+                        <span>VSB</span>
+                        <span>PSD</span>
+                    </div>
+                </div>
+
+                <div class="card yellow" data-link="Drone.html">
+                    <img src="assets/Screenshot 2024-08-09 at 3.49.33 AM 1.png" alt="course image" />
+                    <h4 class="code">Drone</h4>
+                    <p class="code-p">Introducing a simplified approach to building applications without coding
+                        complexities.</p>
+                    <div class="card-tags">
+                        <span>SL Link</span>
+                        <span class="source">SL Source</span>
+                        <span>Figma</span>
+                        <span>Sourcefile</span>
+                        <span>HTML</span>
+                        <span>VSB</span>
+                        <span>PSD</span>
+                    </div>
+                </div>
+
+
+
+                <div class="card dark" data-link="Networking.html">
+                    <img src="assets/Screenshot 2024-08-09 at 3.48.00 AM 1.png" alt="course image" />
+                    <h4 class="code">Networking</h4>
+                    <p class="code-p">Introducing a simplified approach to building applications without coding
+                        complexities.</p>
+                    <div class="card-tags">
+                        <span>SL Link</span>
+                        <span class="source">SL Source</span>
+                        <span>Figma</span>
+                        <span>Sourcefile</span>
+                        <span>HTML</span>
+                        <span>VSB</span>
+                        <span>PSD</span>
+                    </div>
+                </div>
+
+                <div class="card gray" data-link="Artificial-Intelligence.html">
+                    <img src="assets/Screenshot 2024-08-09 at 3.51.23 AM 1.png" alt=" image" />
+                    <h4 class="code">Artificial Intelligence</h4>
+                    <p class="code-p">Introducing a simplified approach to building applications without coding
+                        complexities.</p>
+                    <div class="card-tags">
+                        <span>SL Link</span>
+                        <span class="source">SL Source</span>
+                        <span>Figma</span>
+                        <span>Sourcefile</span>
+                        <span>HTML</span>
+                        <span>VSB</span>
+                        <span>PSD</span>
+                    </div>
+                </div>
+
+                <div class="card green" data-link="Intelligent-Automation.html">
+                    <img src="assets/Screenshot 2024-08-09 at 3.52.25 AM 1.png" alt="image" />
+                    <h4 class="code">Intelligent Automation</h4>
+                    <p class="code-p">Introducing a simplified approach to building applications without coding
+                        complexities.</p>
+                    <div class="card-tags">
+                        <span>SL Link</span>
+                        <span class="source">SL Source</span>
+                        <span>Figma</span>
+                        <span>Sourcefile</span>
+                        <span>HTML</span>
+                        <span>VSB</span>
+                        <span>PSD</span>
+                    </div>
+                </div>
+
+                <div class="card blue" data-link="lowcode.html">
+                    <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png" alt="course image" />
+                    <h4 class="code">Low Code No Code</h4>
+                    <p class="code-p">Introducing a simplified approach to building applications without coding
+                        complexities.</p>
+                    <div class="card-tags">
+                        <span>SL Link</span>
+                        <span class="source">SL Source</span>
+                        <span>Figma</span>
+                        <span>Sourcefile</span>
+                        <span>HTML</span>
+                        <span>VSB</span>
+                        <span>PSD</span>
+                    </div>
+                </div>
+
+                <div class="card q" data-link="lowcode.html">
+                    <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png" alt="course image" />
+                    <h4 class="code">Low Code No Code</h4>
+                    <p class="code-p">Introducing a simplified approach to building applications without coding
+                        complexities.</p>
+                    <div class="card-tags">
+                        <span>SL Link</span>
+                        <span class="source">SL Source</span>
+                        <span>Figma</span>
+                        <span>Sourcefile</span>
+                        <span>HTML</span>
+                        <span>VSB</span>
+                        <span>PSD</span>
+                    </div>
+                </div>
+
+                <div class="card W" data-link="Drone.html">
+                    <img src="assets/Screenshot 2024-08-09 at 3.49.33 AM 1.png" alt="course image" />
+                    <h4 class="code">Drone</h4>
+                    <p class="code-p">Introducing a simplified approach to building applications without coding
+                        complexities.</p>
+                    <div class="card-tags">
+                        <span>SL Link</span>
+                        <span class="source">SL Source</span>
+                        <span>Figma</span>
+                        <span>Sourcefile</span>
+                        <span>HTML</span>
+                        <span>VSB</span>
+                        <span>PSD</span>
+                    </div>
+                </div>
+
+                <div class="card e" data-link="lowcode.html">
+                    <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png" alt="course image" />
+                    <h4 class="code">Low Code No Code</h4>
+                    <p class="code-p">Introducing a simplified approach to building applications without coding
+                        complexities.</p>
+                    <div class="card-tags">
+                        <span>SL Link</span>
+                        <span class="source">SL Source</span>
+                        <span>Figma</span>
+                        <span>Sourcefile</span>
+                        <span>HTML</span>
+                        <span>VSB</span>
+                        <span>PSD</span>
+                    </div>
+                </div>
+
+                <!-- duplicate cards as needed -->
+            </section>
+
+            <!-- QUICK LINKS -->
+            <section class="quick-links">
+                <h3>Quick Links</h3>
+                <div class="quick-grid">
+                    <div class="quick-box"></div>
+                    <div class="quick-box"></div>
+                    <div class="quick-box"></div>
+                </div>
+            </section>
+
+        </main>
+
 
     </div>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-      <div class="sidebar-body">
-
-        <input class="search" placeholder="Search..." />
-
-        <div class="sidebar-section">
-          <h6>⭐ Companies</h6>
-          <ul>
-            <li>Mondelez</li>
-            <li>Mondelez</li>
-            <li>Mondelez</li>
-          </ul>
-        </div>
-
-        <div class="sidebar-section">
-          <h6 id="all-products-btn">🔴 All Products</h6>
-          <ul class="products">
-            <li data-page="welcome">Welcome Select</li>
-            <li data-page="language">Language Select</li>
-            <li data-page="role">Role Selection</li>
-            <li data-page="attestation">Attestation</li>
-            <li data-page="visual">Visual Menu</li>
-            <li data-page="overview">Overview</li>
-            <li data-page="objectives">Objectives</li>
-            <li data-page="animations">Animations</li>
-            <li data-page="imageclick">Image click and learn</li>
-            <li data-page="buttonclick">Button click and learn</li>
-            <li data-page="tabclick">Tab click and learn</li>
-            <li data-page="carousel">Carousel</li>
-            <li data-page="timeline">Timeline</li>
-          </ul>
-        </div>
-      </div>
-    </aside>
-    <!-- MAIN CONTENT -->
-    <main class="content">
-      <div id="content-area"></div>
-        <div class="tags">
-          <div class="t1"><span data-link="lowcode.html">Storyline</span>
-            <span>HTML</span>
-            <span>Articulate</span>
-            <span>Figma</span>
-            <span>SB Link</span>
-          </div>
-          <div class="t2">
-            <span>VSB</span>
-            <span>PSD</span>
-            <span>SL Source</span>
-            <span>SL Link</span>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- TABS -->
-      <section class="tabs">
-        <span class="active">Recently Added ●</span>
-        <span>HTML Links</span>
-        <span>Master Docs</span>
-        <span>Storyline</span>
-      </section>
-
-      <!-- CARDS GRID -->
-      <section class="cards">
-        <div class="card pink" data-link="lowcode.html">
-            <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png" alt="course image" />
-          <h4 class="code">Low Code No Code</h4>
-          <p class="code-p">Introducing a simplified approach to building applications without coding complexities.</p>
-          <div class="card-tags">
-            <span>SL Link</span>
-            <span class="source">SL Source</span>
-            <span>Figma</span>
-            <span>Sourcefile</span>
-            <span>HTML</span>
-            <span>VSB</span>
-            <span>PSD</span>
-          </div>
-        </div>
-
-        <div class="card yellow" data-link="Drone.html">
-          <img src="assets/Screenshot 2024-08-09 at 3.49.33 AM 1.png" alt="course image" />
-          <h4 class="code">Drone</h4>
-          <p class="code-p">Introducing a simplified approach to building applications without coding complexities.</p>
-          <div class="card-tags">
-            <span>SL Link</span>
-            <span class="source">SL Source</span>
-            <span>Figma</span>
-            <span>Sourcefile</span>
-            <span>HTML</span>
-            <span>VSB</span>
-            <span>PSD</span>
-          </div>
-        </div>
-
-
-
-        <div class="card dark" data-link="Networking.html">
-          <img src="assets/Screenshot 2024-08-09 at 3.48.00 AM 1.png" alt="course image" />
-          <h4 class="code">Networking</h4>
-          <p class="code-p">Introducing a simplified approach to building applications without coding complexities.</p>
-          <div class="card-tags">
-            <span>SL Link</span>
-            <span class="source">SL Source</span>
-            <span>Figma</span>
-            <span>Sourcefile</span>
-            <span>HTML</span>
-            <span>VSB</span>
-            <span>PSD</span>
-          </div>
-        </div>
-
-        <div class="card gray" data-link="Artificial-Intelligence.html">
-          <img src="assets/Screenshot 2024-08-09 at 3.51.23 AM 1.png" alt=" image" />
-          <h4 class="code">Artificial Intelligence</h4>
-          <p class="code-p">Introducing a simplified approach to building applications without coding complexities.</p>
-          <div class="card-tags">
-            <span>SL Link</span>
-            <span class="source">SL Source</span>
-            <span>Figma</span>
-            <span>Sourcefile</span>
-            <span>HTML</span>
-            <span>VSB</span>
-            <span>PSD</span>
-          </div>
-        </div>
-
-        <div class="card green" data-link="Intelligent-Automation.html">
-          <img src="assets/Screenshot 2024-08-09 at 3.52.25 AM 1.png" alt="image" />
-          <h4 class="code">Intelligent Automation</h4>
-          <p class="code-p">Introducing a simplified approach to building applications without coding complexities.</p>
-          <div class="card-tags">
-            <span>SL Link</span>
-            <span class="source">SL Source</span>
-            <span>Figma</span>
-            <span>Sourcefile</span>
-            <span>HTML</span>
-            <span>VSB</span>
-            <span>PSD</span>
-          </div>
-        </div>
-
-        <div class="card blue" data-link="lowcode.html">
-          <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png" alt="course image" />
-          <h4 class="code">Low Code No Code</h4>
-          <p class="code-p">Introducing a simplified approach to building applications without coding complexities.</p>
-          <div class="card-tags">
-            <span>SL Link</span>
-            <span class="source">SL Source</span>
-            <span>Figma</span>
-            <span>Sourcefile</span>
-            <span>HTML</span>
-            <span>VSB</span>
-            <span>PSD</span>
-          </div>
-        </div>
-
-        <div class="card q" data-link="lowcode.html">
-          <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png" alt="course image" />
-          <h4 class="code">Low Code No Code</h4>
-          <p class="code-p">Introducing a simplified approach to building applications without coding complexities.</p>
-          <div class="card-tags">
-            <span>SL Link</span>
-            <span class="source">SL Source</span>
-            <span>Figma</span>
-            <span>Sourcefile</span>
-            <span>HTML</span>
-            <span>VSB</span>
-            <span>PSD</span>
-          </div>
-        </div>
-
-        <div class="card W" data-link="Drone.html">
-          <img src="assets/Screenshot 2024-08-09 at 3.49.33 AM 1.png" alt="course image" />
-          <h4 class="code">Drone</h4>
-          <p class="code-p">Introducing a simplified approach to building applications without coding complexities.</p>
-          <div class="card-tags">
-            <span>SL Link</span>
-            <span class="source">SL Source</span>
-            <span>Figma</span>
-            <span>Sourcefile</span>
-            <span>HTML</span>
-            <span>VSB</span>
-            <span>PSD</span>
-          </div>
-        </div>
-
-        <div class="card e" data-link="lowcode.html">
-          <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png" alt="course image" />
-          <h4 class="code">Low Code No Code</h4>
-          <p class="code-p">Introducing a simplified approach to building applications without coding complexities.</p>
-          <div class="card-tags">
-            <span>SL Link</span>
-            <span class="source">SL Source</span>
-            <span>Figma</span>
-            <span>Sourcefile</span>
-            <span>HTML</span>
-            <span>VSB</span>
-            <span>PSD</span>
-          </div>
-        </div>
-
-        <!-- duplicate cards as needed -->
-      </section>
-
-      <!-- QUICK LINKS -->
-      <section class="quick-links">
-        <h3>Quick Links</h3>
-        <div class="quick-grid">
-          <div class="quick-box"></div>
-          <div class="quick-box"></div>
-          <div class="quick-box"></div>
-        </div>
-      </section>
-
-    </main>
-
-
-  </div>
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
