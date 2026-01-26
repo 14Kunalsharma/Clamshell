@@ -216,10 +216,10 @@ body {
 
 /* TABS */
 .tabs {
-  margin-top: 28px;
   display: flex;
   gap: 24px;
   font-size: 14px;
+  margin-top: 10px;
 }
 
 .tabs span {
