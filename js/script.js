@@ -96,6 +96,15 @@ function simplePage(title) {
   contentArea.innerHTML = `
     <section class="welcome-card">
       <h1>${title}</h1>
+
+      <div class="cards">
+
+        <div class="card pink">
+          <h4>${title} Card</h4>
+          <p>This is a sample card</p>
+        </div>
+
+      </div>
     </section>
   `;
 
