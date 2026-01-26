@@ -72,13 +72,6 @@ function showWelcomeNancy() {
           <span>SL Source</span>
           <span>SL Link</span>
         </div>
-
-        <div class="t3">
-          <span>SCORM</span>
-          <span>PDF</span>
-          <span>Docs</span>
-        </div>
-
       </div>
     </section>
   `;
