@@ -76,7 +76,6 @@ function showWelcomeNancy() {
   `;
 
   if (mainCards) mainCards.style.display = "grid";
-  if (quickLinks) quickLinks.style.display = "block";
 }
 
 function showWelcomeSelect() {
