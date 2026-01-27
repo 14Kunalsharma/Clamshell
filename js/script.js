@@ -43,9 +43,7 @@ const dashboardExtras = document.getElementById("dashboard-extras");
     LOAD DEFAULT
 ===================================================== */
 
-if (contentArea) {
-  showWelcomeNancy();
-}
+showWelcomeNancy();
 
 /* =====================================================
     FUNCTIONS
@@ -76,8 +74,8 @@ function showWelcomeNancy() {
     </section>
   `;
 
-  if (mainCards) mainCards.style.display = "grid";
-  if (dashboardExtras) dashboardExtras.style.display = "block";
+  mainCards.style.display = "grid";
+  dashboardExtras.style.display = "block";
 }
 
 function showWelcomeSelect() {
@@ -88,12 +86,40 @@ function showWelcomeSelect() {
     </section>
   `;
 
-  if (dashboardExtras) dashboardExtras.style.display = "none";
+  dashboardExtras.style.display = "none";
 }
 
-/* 🔥 SINGLE CARD PAGE */
+/* =====================================================
+   MULTI CARD PAGE
+===================================================== */
 
-function showSingleCardPage(title) {
+function showCompanyPage(title, count) {
+
+  let cardsHTML = "";
+
+  for (let i = 1; i <= count; i++) {
+    cardsHTML += `
+      <div class="card pink">
+        <h4>${title} Card ${i}</h4>
+        <p>Open ${title}</p>
+      </div>
+    `;
+  }
+
+  contentArea.innerHTML = `
+    <section class="welcome-card">
+      <h1>${title}</h1>
+    </section>
+
+    <div class="cards">
+      ${cardsHTML}
+    </div>
+  `;
+
+  dashboardExtras.style.display = "none";
+}
+
+function showSinglePage(title) {
 
   contentArea.innerHTML = `
     <section class="welcome-card">
@@ -108,7 +134,7 @@ function showSingleCardPage(title) {
     </div>
   `;
 
-  if (dashboardExtras) dashboardExtras.style.display = "none";
+  dashboardExtras.style.display = "none";
 }
 
 /* =====================================================
@@ -119,42 +145,26 @@ items.forEach(item => {
 
   item.addEventListener("click", () => {
 
-    const page = item.dataset.page?.toLowerCase();
+    const page = item.dataset.page.toLowerCase();
 
     items.forEach(i => i.classList.remove("active"));
     item.classList.add("active");
 
-    if (page === "welcome") {
-      showWelcomeSelect();
-    }
+    if (page === "welcome") showWelcomeSelect();
 
-    else if (page === "language") {
-      showSingleCardPage("Language Select");
-    }
+    else if (page === "language") showSinglePage("Language Select");
 
-    else if (page === "role") {
-      showSingleCardPage("Role Selection");
-    }
+    else if (page === "role") showSinglePage("Role Selection");
 
-    else if (page === "mars") {
-      showSingleCardPage("Mars");
-    }
+    else if (page === "mars") showCompanyPage("Mars", 5);
 
-    else if (page === "mondelez") {
-      showSingleCardPage("Mondelez");
-    }
+    else if (page === "mondelez") showCompanyPage("Mondelez", 3);
 
-    else if (page === "eisner") {
-      showSingleCardPage("Eisner Amper");
-    }
+    else if (page === "eisner") showCompanyPage("Eisner Amper", 5);
 
-    else if (page === "attestation") {
-      showSingleCardPage("Attestation");
-    }
+    else if (page === "attestation") showSinglePage("Attestation");
 
-    else {
-      showSingleCardPage("Coming Soon");
-    }
+    else showSinglePage("Coming Soon");
 
   });
 
@@ -164,18 +174,15 @@ items.forEach(item => {
     ALL PRODUCTS BUTTON
 ===================================================== */
 
-if (allProductsBtn) {
-  allProductsBtn.addEventListener("click", () => {
-
-    items.forEach(i => i.classList.remove("active"));
-    showWelcomeNancy();
-
-  });
-}
+allProductsBtn.addEventListener("click", () => {
+  items.forEach(i => i.classList.remove("active"));
+  showWelcomeNancy();
+});
 
 /* =====================================================
-    CARD CLICK
+    CARD CLICK (DASHBOARD CARDS)
 ===================================================== */
+
 document.body.addEventListener("click", function(e){
 
   const card = e.target.closest(".card");
@@ -187,3 +194,4 @@ document.body.addEventListener("click", function(e){
 });
 
 });
+
