@@ -118,7 +118,7 @@ items.forEach(item => {
 
   item.addEventListener("click", () => {
 
-    const page = item.dataset.page;
+    const page = item.dataset.page.toLowerCase();
 
     items.forEach(i => i.classList.remove("active"));
     item.classList.add("active");
