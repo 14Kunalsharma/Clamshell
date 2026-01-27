@@ -162,29 +162,29 @@ items.forEach(item => {
 
     else if (page === "mars") {
       showCompanyPage("Mars", [
-        "Mars Course 1",
-        "Mars Course 2",
-        "Mars Course 3",
-        "Mars Course 4",
-        "Mars Course 5"
+        "Prompt Engineering"
+        "AI at Mars",
+        "Asset Health Check",
+        "Supplier Trust Guide",
+        "Commercial Infographic"
       ]);
     }
 
     else if (page === "mondelez") {
       showCompanyPage("Mondelez", [
-        "Mondelez Course 1",
-        "Mondelez Course 2",
-        "Mondelez Course 3"
+        "Client Portal",
+        "Individual Engagement Letter",
+        "SAP"
       ]);
     }
 
     else if (page === "eisner") {
       showCompanyPage("Eisner Amper", [
-        "Eisner Course 1",
-        "Eisner Course 2",
-        "Eisner Course 3",
-        "Eisner Course 4",
-        "Eisner Course 5"
+        "TM Road Freight",
+        "TM Ocean Freight",
+        "TM Transport Settlement",
+        "Foreign Trade",
+        "Gen Course"
       ]);
     }
 
