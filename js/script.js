@@ -99,20 +99,32 @@ function showCompanyPage(title, cardsArray) {
 
   cardsArray.forEach(name => {
     cardsHTML += `
-      <div class="card pink">
+  <div class="card pink company-udemy">
 
-        <h4>${name}</h4>
-        <p>Open Course</p>
+    <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png">
 
-        <!-- Hover Side Info -->
-        <div class="hover-info">
-          <h3>${name}</h3>
-          <p>This course covers fundamentals to advanced.</p>
-          <button>View Details</button>
-        </div>
+    <div class="udemy-body">
+      <h4>${name}</h4>
 
+      <p class="udemy-author">By Clamshell Team</p>
+
+      <div class="udemy-rating">
+        ⭐ 4.7 <span>(410,182)</span>
       </div>
-    `;
+
+      <div class="udemy-price">
+        ₹599 <del>₹3,109</del>
+      </div>
+
+      <div class="udemy-badges">
+        <span class="premium">Premium</span>
+        <span class="best">Bestseller</span>
+      </div>
+    </div>
+
+  </div>
+`;
+
   });
 
   contentArea.innerHTML = `
