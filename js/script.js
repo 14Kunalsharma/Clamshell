@@ -122,9 +122,15 @@ function showCompanyPage(title, cardsArray) {
       </div>
     </div>
 
+    <!-- POPUP INFO -->
+    <div class="hover-info">
+      <h3>${name}</h3>
+      <p>Complete course with videos, examples and projects.</p>
+      <button>View Details</button>
+    </div>
+
   </div>
 `;
-
   });
 
   contentArea.innerHTML = `
@@ -241,4 +247,3 @@ document.body.addEventListener("click", function(e){
 });
 
 });
-
