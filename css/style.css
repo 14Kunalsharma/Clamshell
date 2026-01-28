@@ -238,7 +238,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 8px;
-  overflow:visible;
+  overflow: visible;
 }
 
 .card {
@@ -495,6 +495,7 @@ body {
 
 .card{
   position: relative;
+  z-index: 5;
 }
 
 .hover-info{
@@ -513,7 +514,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: 0.3s ease;
-  z-index: 100;
+  z-index: 9999;
 }
 
 .card:hover .hover-info{
