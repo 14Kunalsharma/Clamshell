@@ -162,7 +162,7 @@ items.forEach(item => {
 
     else if (page === "mars") {
       showCompanyPage("Mars", [
-        "Prompt Engineering"
+        "Prompt Engineering",
         "AI at Mars",
         "Asset Health Check",
         "Supplier Trust Guide",
