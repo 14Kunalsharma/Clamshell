@@ -612,34 +612,7 @@ body {
   color:#3d3c0a;
 }
 
-/* Mobile Header */
-.mobile-header{
-  display:none;
-  padding:10px;
-  background:white;
-  border-bottom:1px solid #ddd;
-}
 
-#menu-btn{
-  font-size:26px;
-  cursor:pointer;
-}
-
-  .sidebar{
-    position:fixed;
-    top:0;
-    left:-260px;
-    width:260px;
-    height:100vh;
-    background:white;
-    transition:0.3s ease;
-    z-index:999;
-  }
-
-  .sidebar.show{
-    left:0;
-  }
-}
 
 
 
