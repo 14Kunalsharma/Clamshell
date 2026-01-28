@@ -238,6 +238,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 8px;
+  overflow:visible;
 }
 
 .card {
@@ -293,7 +294,7 @@ body {
 
 .card.pink { 
   background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
-  overflow: hidden;
+  overflow: visible;
   border-radius: 16px;
 }
 
