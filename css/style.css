@@ -529,6 +529,85 @@ body {
   color:#555;
 }
 
+/* ============================
+   UDEMY STYLE (COMPANY ONLY)
+============================ */
+
+.company-udemy{
+  background:#fff !important;
+  padding:0;
+  overflow:hidden;
+}
+
+.company-udemy img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+.udemy-body{
+  padding:12px;
+}
+
+.udemy-body h4{
+  font-size:16px;
+  font-weight:600;
+  color:#111;
+  margin-bottom:6px;
+}
+
+.udemy-author{
+  font-size:12px;
+  color:#777;
+  margin-bottom:6px;
+}
+
+.udemy-rating{
+  font-size:13px;
+  font-weight:600;
+  color:#b4690e;
+}
+
+.udemy-rating span{
+  color:#666;
+  font-weight:400;
+}
+
+.udemy-price{
+  font-size:16px;
+  font-weight:700;
+  margin-top:6px;
+}
+
+.udemy-price del{
+  color:#888;
+  font-size:13px;
+  margin-left:6px;
+}
+
+.udemy-badges{
+  display:flex;
+  gap:6px;
+  margin-top:8px;
+}
+
+.udemy-badges span{
+  font-size:11px;
+  padding:4px 8px;
+  border-radius:4px;
+}
+
+.premium{
+  background:#5624d0;
+  color:white;
+}
+
+.best{
+  background:#eceb98;
+  color:#3d3c0a;
+}
+
+
 
 
 
