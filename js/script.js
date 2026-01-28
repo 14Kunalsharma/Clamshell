@@ -100,8 +100,17 @@ function showCompanyPage(title, cardsArray) {
   cardsArray.forEach(name => {
     cardsHTML += `
       <div class="card pink">
+
         <h4>${name}</h4>
         <p>Open Course</p>
+
+        <!-- Hover Side Info -->
+        <div class="hover-info">
+          <h3>${name}</h3>
+          <p>This course covers fundamentals to advanced.</p>
+          <button>View Details</button>
+        </div>
+
       </div>
     `;
   });
