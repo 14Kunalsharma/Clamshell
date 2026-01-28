@@ -491,4 +491,30 @@ body {
   background:#ff7aa2;
 }
 
+.card{
+  position: relative;
+}
+
+.hover-info{
+  position: absolute;
+  top: 0;
+  left: 105%;
+  width: 230px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 100;
+}
+
+.card:hover .hover-info{
+  opacity: 1;
+  visibility: visible;
+}
+
+
 
