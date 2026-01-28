@@ -503,12 +503,12 @@ body {
   left: 105%;
   width: 230px;
 
-  background: rgba(0,0,0,0.85);   /* DARK BACKGROUND */
-  color: white;
-
+  background: #ffffff;   /* PURE WHITE */
   padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+
+  border: 2px solid #ff7aa2;   /* pink outline */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 
   opacity: 0;
   visibility: hidden;
@@ -521,11 +521,13 @@ body {
   visibility: visible;
 }
 
-.hover-info h3,
-.hover-info p{
-  color: white;
+.hover-info h3{
+  color:#222;
 }
 
+.hover-info p{
+  color:#555;
+}
 
 
 
