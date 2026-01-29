@@ -149,14 +149,20 @@ body{
 .logo {
   height: 40px;
   margin-bottom: 20px;
-
   border-radius: 8px;
 } 
 
 .search {
   padding: 10px 14px;
   border-radius: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid linear-gradient(
+    to right,
+    #a7c7f9,
+    #5ec8f8,
+    #7ed7d0,
+    #e8efb0,
+    #ffb6b6,
+    #f6b1d8 );
 }
 
 .sidebar-section h6 {
