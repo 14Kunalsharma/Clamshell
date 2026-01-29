@@ -281,4 +281,27 @@ if (searchInput) {
   });
 }
 
+const profileIcon = document.getElementById("profile-icon");
+const profileMenu = document.getElementById("profile-menu");
+const logoutBtn = document.getElementById("logout-btn");
+
+if (profileIcon) {
+  profileIcon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    profileMenu.classList.toggle("show");
+  });
+}
+
+// click outside → close menu
+document.addEventListener("click", () => {
+  profileMenu.classList.remove("show");
+});
+
+// logout
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    window.location.href = "login.html";
+  });
+}
+
 });
