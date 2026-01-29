@@ -716,8 +716,8 @@ body{
 /* dropdown */
 .profile-menu {
   position: absolute;
-  right: 0;
-  top: 35px;
+  right: -10px;
+  top: 40px;
   background: #fff;
   width: 180px;
   padding: 12px;
@@ -760,6 +760,10 @@ body{
 /* show class */
 .profile-menu.show {
   display: block;
+}
+
+.icon-item {
+  position: relative;
 }
 
 
