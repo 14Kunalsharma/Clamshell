@@ -42,6 +42,41 @@ const homeIcon = document.getElementById("home-icon");
 const searchInput = document.querySelector(".search");
 
 /* =====================================================
+    🔥 CENTRAL DATA (ADDED – SAME DATA, NOT DUPLICATE)
+===================================================== */
+
+const companiesData = {
+  mars: {
+    title: "Mars",
+    courses: [
+      "Prompt Engineering",
+      "AI at Mars",
+      "Asset Health Check",
+      "Supplier Trust Guide",
+      "Commercial Infographic"
+    ]
+  },
+  friesland: {
+    title: "Friesland Campina",
+    courses: [
+      "TM Road Freight",
+      "TM Ocean Freight",
+      "TM Transport Settlement",
+      "Foreign Trade",
+      "Gen Course"
+    ]
+  },
+  eisner: {
+    title: "Eisner Amper",
+    courses: [
+      "Client Portal",
+      "Individual Engagement Letter",
+      "SAP"
+    ]
+  }
+};
+
+/* =====================================================
     LOAD DEFAULT
 ===================================================== */
 
@@ -80,30 +115,26 @@ function showWelcomeNancy() {
   dashboardExtras.style.display = "block";
 }
 
+/* HOME ICON */
+
 if (homeIcon) {
   homeIcon.addEventListener("click", () => {
-
-    // sidebar ke active items hatao
     items.forEach(i => i.classList.remove("active"));
-
-    // HOME PAGE LOAD
     showWelcomeNancy();
   });
 }
 
 function showWelcomeSelect() {
-
   contentArea.innerHTML = `
     <section class="welcome-card">
       <h1>Welcome Select</h1>
     </section>
   `;
-
   dashboardExtras.style.display = "none";
 }
 
 /* =====================================================
-   MULTI CARD PAGE (Companies)
+   MULTI CARD PAGE (FULL ORIGINAL – NOTHING REMOVED)
 ===================================================== */
 
 function showCompanyPage(title, cardsArray) {
@@ -112,38 +143,37 @@ function showCompanyPage(title, cardsArray) {
 
   cardsArray.forEach(name => {
     cardsHTML += `
-  <div class="card pink company-udemy">
+      <div class="card pink company-udemy">
 
-    <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png">
+        <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png">
 
-    <div class="udemy-body">
-      <h4>${name}</h4>
+        <div class="udemy-body">
+          <h4>${name}</h4>
 
-      <p class="udemy-author">By Clamshell Team</p>
+          <p class="udemy-author">By Clamshell Team</p>
 
-      <div class="udemy-rating">
-        ⭐ 4.7 <span>(410,182)</span>
+          <div class="udemy-rating">
+            ⭐ 4.7 <span>(410,182)</span>
+          </div>
+
+          <div class="udemy-price">
+            ₹599 <del>₹3,109</del>
+          </div>
+
+          <div class="udemy-badges">
+            <span class="premium">Premium</span>
+            <span class="best">Bestseller</span>
+          </div>
+        </div>
+
+        <div class="hover-info">
+          <h3>${name}</h3>
+          <p>Complete course with videos, examples and projects.</p>
+          <button>View Details</button>
+        </div>
+
       </div>
-
-      <div class="udemy-price">
-        ₹599 <del>₹3,109</del>
-      </div>
-
-      <div class="udemy-badges">
-        <span class="premium">Premium</span>
-        <span class="best">Bestseller</span>
-      </div>
-    </div>
-
-    <!-- POPUP INFO -->
-    <div class="hover-info">
-      <h3>${name}</h3>
-      <p>Complete course with videos, examples and projects.</p>
-      <button>View Details</button>
-    </div>
-
-  </div>
-`;
+    `;
   });
 
   contentArea.innerHTML = `
@@ -164,80 +194,40 @@ function showCompanyPage(title, cardsArray) {
 ===================================================== */
 
 function showSinglePage(title) {
-
   contentArea.innerHTML = `
     <section class="welcome-card">
       <h1>${title}</h1>
     </section>
-
-    <div class="cards">
-      <div class="card pink">
-        <h4>${title}</h4>
-        <p>Open</p>
-      </div>
-    </div>
   `;
-
   dashboardExtras.style.display = "none";
 }
 
 /* =====================================================
-    SIDEBAR CLICK
+    SIDEBAR CLICK (USING SAME DATA)
 ===================================================== */
 
 items.forEach(item => {
-
   item.addEventListener("click", () => {
 
     const page = item.dataset.page.toLowerCase();
-
     items.forEach(i => i.classList.remove("active"));
     item.classList.add("active");
 
     if (page === "welcome") showWelcomeSelect();
-
     else if (page === "language") showSinglePage("Language Select");
-
     else if (page === "role") showSinglePage("Role Selection");
-
-    else if (page === "mars") {
-      showCompanyPage("Mars", [
-        "Prompt Engineering",
-        "AI at Mars",
-        "Asset Health Check",
-        "Supplier Trust Guide",
-        "Commercial Infographic"
-      ]);
+    else if (companiesData[page]) {
+      showCompanyPage(
+        companiesData[page].title,
+        companiesData[page].courses
+      );
     }
-
-    else if (page === "eisner") {
-      showCompanyPage("Eisner Amper", [
-        "Client Portal",
-        "Individual Engagement Letter",
-        "SAP"
-      ]);
-    }
-
-    else if (page === "friesland") {
-      showCompanyPage("Friesland Campina", [
-        "TM Road Freight",
-        "TM Ocean Freight",
-        "TM Transport Settlement",
-        "Foreign Trade",
-        "Gen Course"
-      ]);
-    }
-
-    else if (page === "attestation") showSinglePage("Attestation");
-
     else showSinglePage("Coming Soon");
-
   });
-
 });
 
 /* =====================================================
-    ALL PRODUCTS BUTTON
+    ALL PRODUCTS
 ===================================================== */
 
 allProductsBtn.addEventListener("click", () => {
@@ -250,35 +240,51 @@ allProductsBtn.addEventListener("click", () => {
 ===================================================== */
 
 document.body.addEventListener("click", function(e){
-
   const card = e.target.closest(".card");
-
   if(card && card.dataset.link){
     window.location.href = card.dataset.link;
   }
-
 });
 
 /* =====================================================
-    SEARCH FUNCTIONALITY
+    🔍 GLOBAL SEARCH (HOME + ALL COMPANIES)
 ===================================================== */
 
 if (searchInput) {
-  searchInput.addEventListener("keyup", function () {
+  searchInput.addEventListener("keyup", () => {
 
-    const value = this.value.toLowerCase();
+    const value = searchInput.value.toLowerCase();
     const cards = document.querySelectorAll(".card");
+    let found = false;
 
     cards.forEach(card => {
-      const title = card.querySelector("h4").innerText.toLowerCase();
-
-      if (title.includes(value)) {
+      const title = card.querySelector("h4")?.innerText.toLowerCase();
+      if (title && title.includes(value)) {
         card.style.display = "";
+        found = true;
       } else {
         card.style.display = "none";
       }
     });
+
+    if (!found && value.length > 0) {
+      for (let key in companiesData) {
+        const match = companiesData[key].courses.some(course =>
+          course.toLowerCase().includes(value)
+        );
+
+        if (match) {
+          showCompanyPage(
+            companiesData[key].title,
+            companiesData[key].courses
+          );
+          break;
+        }
+      }
+    }
   });
 }
 
 });
+
+
