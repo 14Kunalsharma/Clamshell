@@ -39,6 +39,7 @@ const mainCards = document.querySelector(".cards");
 const allProductsBtn = document.getElementById("all-products-btn");
 const dashboardExtras = document.getElementById("dashboard-extras");
 const homeIcon = document.getElementById("home-icon");
+const searchInput = document.querySelector(".search");
 
 /* =====================================================
     LOAD DEFAULT
@@ -257,5 +258,28 @@ document.body.addEventListener("click", function(e){
   }
 
 });
+
+/* =====================================================
+    SEARCH FUNCTIONALITY
+===================================================== */
+
+if (searchInput) {
+  searchInput.addEventListener("keyup", () => {
+
+    const searchValue = searchInput.value.toLowerCase();
+
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+      const title = card.querySelector("h4")?.innerText.toLowerCase();
+
+      if (title.includes(searchValue)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+}
 
 });
