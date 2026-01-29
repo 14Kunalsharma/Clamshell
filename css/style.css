@@ -716,8 +716,9 @@ body{
 /* dropdown */
 .profile-menu {
   position: absolute;
-  right: -10px;
-  top: 40px;
+  right: auto;
+  left: 50%;
+  top: 36px;
   background: #fff;
   width: 180px;
   padding: 12px;
@@ -725,6 +726,7 @@ body{
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   display: none;
   z-index: 999;
+  transform: translateX(-50%);
 }
 
 .profile-menu p {
