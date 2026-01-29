@@ -629,6 +629,75 @@ body{
   z-index: 100000;
 }
 
+.simple-page{
+  padding:40px;
+}
+
+.page-header{
+  background: linear-gradient(90deg,#4facfe,#7bdcb5,#fddc7a,#ff8aa1);
+  padding:30px;
+  border-radius:16px;
+  color:white;
+  margin-bottom:30px;
+}
+
+.page-header h1{
+  font-size:40px;
+  margin:10px 0;
+}
+
+.page-header p{
+  opacity:0.9;
+}
+
+.back-btn{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.back-btn:hover{
+  text-decoration:underline;
+}
+
+/* Cards */
+
+.page-cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.mini-card{
+  padding:20px;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.mini-card h3{
+  margin-bottom:8px;
+}
+
+.mini-card p{
+  font-size:14px;
+}
+
+/* Color styles */
+
+.mini-card.pink{
+  background:linear-gradient(120deg,#FFC56F75,#FF7BCA);
+}
+
+.mini-card.blue{
+  background:linear-gradient(120deg,#7bc6ff,#bde0fe);
+}
+
+.mini-card.green{
+  background:linear-gradient(120deg,#a8e6cf,#dcedc1);
+}
+
+
 
 
 
