@@ -264,17 +264,16 @@ document.body.addEventListener("click", function(e){
 ===================================================== */
 
 if (searchInput) {
-  searchInput.addEventListener("keyup", () => {
+  searchInput.addEventListener("keyup", function () {
 
-    const searchValue = searchInput.value.toLowerCase();
-
+    const value = this.value.toLowerCase();
     const cards = document.querySelectorAll(".card");
 
     cards.forEach(card => {
-      const title = card.querySelector("h4")?.innerText.toLowerCase();
+      const title = card.querySelector("h4").innerText.toLowerCase();
 
-      if (title.includes(searchValue)) {
-        card.style.display = "block";
+      if (title.includes(value)) {
+        card.style.display = "";
       } else {
         card.style.display = "none";
       }
