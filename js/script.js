@@ -197,16 +197,16 @@ items.forEach(item => {
       ]);
     }
 
-    else if (page === "friesland") {
-      showCompanyPage("Friesland Campina", [
+    else if (page === "eisner") {
+      showCompanyPage("Eisner Amper", [
         "Client Portal",
         "Individual Engagement Letter",
         "SAP"
       ]);
     }
 
-    else if (page === "eisner") {
-      showCompanyPage("Eisner Amper", [
+    else if (page === "friesland") {
+      showCompanyPage("Friesland Campina", [
         "TM Road Freight",
         "TM Ocean Freight",
         "TM Transport Settlement",
