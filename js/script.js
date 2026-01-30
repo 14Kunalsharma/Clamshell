@@ -3,28 +3,35 @@ document.addEventListener("DOMContentLoaded", () => {
  GLOBAL COURSE DATA
 ========================= */
 
-  const ALL_COURSES = {
-    mars: [
-      "Prompt Engineering",
-      "AI at Mars",
-      "Asset Health Check",
-      "Supplier Trust Guide",
-      "Commercial Infographic"
-    ],
-    eisner: [
-      "Client Portal",
-      "Individual Engagement Letter",
-      "SAP"
-    ],
-    friesland: [
-      "TM Road Freight",
-      "TM Ocean Freight",
-      "TM Transport Settlement",
-      "Foreign Trade",
-      "Gen Course"
-    ]
-  };
+ const ALL_COURSES = {
+  mars: [
+    "Prompt Engineering",
+    "AI at Mars",
+    "Asset Health Check",
+    "Supplier Trust Guide",
+    "Commercial Infographic"
+  ],
+  eisner: [
+    "Client Portal",
+    "Individual Engagement Letter",
+    "SAP"
+  ],
+  friesland: [
+    "TM Road Freight",
+    "TM Ocean Freight",
+    "TM Transport Settlement",
+    "Foreign Trade",
+    "Gen Course"
+  ]
+};
 
+const HOME_CARDS = [
+  "Low Code / No Code",
+  "Drone",
+  "Networking",
+  "Artificial Intelligence",
+  "Intelligent Automation"
+];
 
   /* =====================================================
       LOGIN PAGE
@@ -335,19 +342,30 @@ document.addEventListener("DOMContentLoaded", () => {
         showWelcomeNancy();
         return;
       }
+     let results = [];
 
-      let results = [];
+/* HOME PAGE CARDS SEARCH */
+HOME_CARDS.forEach(card => {
+  if (card.toLowerCase().includes(value)) {
+    results.push({
+      company: "HOME",
+      course: card
+    });
+  }
+});
 
-      Object.keys(ALL_COURSES).forEach(company => {
-        ALL_COURSES[company].forEach(course => {
-          if (course.toLowerCase().includes(value)) {
-            results.push({
-              company: company.toUpperCase(),
-              course
-            });
-          }
-        });
+/* COMPANY COURSES SEARCH */
+Object.keys(ALL_COURSES).forEach(company => {
+  ALL_COURSES[company].forEach(course => {
+    if (course.toLowerCase().includes(value)) {
+      results.push({
+        company: company.toUpperCase(),
+        course
       });
+    }
+  });
+});
+
 
       showSearchResults(results);
     });
