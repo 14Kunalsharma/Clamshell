@@ -824,6 +824,64 @@ body{
   border-radius: 10px;
 }
 
+.icon-bar i,
+.icon-bar a {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #5b5b5b;
+}
+
+.icon-bar i:hover,
+.icon-bar a:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(94, 200, 248, 0.22),
+    rgba(255, 255, 255, 0)
+  );
+  transform: translateY(-2px);
+  color: #222;
+}
+
+.icon-bar i::before,
+.icon-bar a::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 0;
+  background: linear-gradient(#5ec8f8, #7ed7d0);
+  border-radius: 4px;
+  transition: height 0.25s ease;
+}
+
+.icon-bar i:hover::before,
+.icon-bar a:hover::before {
+  height: 60%;
+}
+
+.icon-bar .active {
+  background: linear-gradient(
+    135deg,
+    rgba(94, 200, 248, 0.35),
+    rgba(255, 255, 255, 0)
+  );
+  color: #111;
+}
+
+.icon-bar .active::before {
+  height: 70%;
+}
+
+
 
 
 
