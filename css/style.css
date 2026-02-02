@@ -920,12 +920,14 @@ body{
   cursor: pointer;
   position: relative;
   width: fit-content;
+  color: rgba(0, 0, 0, 0.75);
   transition: all 0.25s ease;
 }
 
 .card .code:hover {
+  color: #000;
   transform: translateY(-2px);
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .card .code::after {
@@ -936,13 +938,15 @@ body{
   width: 0;
   height: 3px;
   border-radius: 4px;
-  background: rgba(0, 0, 0, 0.5);
+  background: #000;
   transition: width 0.25s ease;
 }
 
 .card .code:hover::after {
   width: 100%;
 }
+
+
 
 
 
