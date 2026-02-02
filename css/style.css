@@ -916,6 +916,33 @@ body{
   overflow: hidden;
 }
 
+.card .code {
+  cursor: pointer;
+  position: relative;
+  width: fit-content;
+  transition: all 0.25s ease;
+}
+
+.card .code:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.card .code::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  transition: width 0.25s ease;
+}
+
+.card .code:hover::after {
+  width: 100%;
+}
 
 
 
