@@ -768,6 +768,64 @@ body{
   position: relative;
 }
 
+.sidebar-section ul li {
+  position: relative;
+  padding: 8px 14px;
+  margin-bottom: 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #555;
+}
+
+.sidebar-section ul li:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(94, 200, 248, 0.18),
+    rgba(255, 255, 255, 0)
+  );
+  padding-left: 18px;
+  color: #222;
+}
+
+.sidebar-section ul li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 0;
+  background: linear-gradient(#5ec8f8, #7ed7d0);
+  border-radius: 6px;
+  transition: height 0.25s ease;
+}
+
+.sidebar-section ul li:hover::before {
+  height: 65%;
+}
+
+.sidebar-section ul li.active {
+  background: linear-gradient(
+    90deg,
+    rgba(94, 200, 248, 0.28),
+    rgba(255, 255, 255, 0)
+  );
+  color: #111;
+  font-weight: 600;
+}
+
+.sidebar-section ul li.active::before {
+  height: 75%;
+}
+
+.products li {
+  padding: 8px 14px;
+  border-radius: 10px;
+}
+
+
+
 
 
 
