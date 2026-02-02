@@ -824,8 +824,7 @@ body{
   border-radius: 10px;
 }
 
-.icon-bar i,
-.icon-bar a {
+.icon-item {
   position: relative;
   width: 44px;
   height: 44px;
@@ -838,8 +837,7 @@ body{
   color: #5b5b5b;
 }
 
-.icon-bar i:hover,
-.icon-bar a:hover {
+.icon-item:hover {
   background: linear-gradient(
     135deg,
     rgba(94, 200, 248, 0.22),
@@ -849,8 +847,7 @@ body{
   color: #222;
 }
 
-.icon-bar i::before,
-.icon-bar a::before {
+.icon-item::before {
   content: "";
   position: absolute;
   left: -6px;
@@ -863,12 +860,11 @@ body{
   transition: height 0.25s ease;
 }
 
-.icon-bar i:hover::before,
-.icon-bar a:hover::before {
+.icon-item:hover::before {
   height: 60%;
 }
 
-.icon-bar .active {
+.icon-item.active {
   background: linear-gradient(
     135deg,
     rgba(94, 200, 248, 0.35),
@@ -877,7 +873,7 @@ body{
   color: #111;
 }
 
-.icon-bar .active::before {
+.icon-item.active::before {
   height: 70%;
 }
 
