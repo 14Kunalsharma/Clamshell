@@ -402,5 +402,16 @@ if (searchInput) {
       window.location.href = "login.html";
     });
   }
+function handleGoogleSSO(response) {
+  const token = response.credential;
+
+  // Abhi backend nahi hai → direct allow (demo)
+  // Backend aate hi yahin API call hogi
+
+  console.log("Google SSO Token:", token);
+
+  // TEMP: direct dashboard
+  window.location.href = "main-dashboard.html";
+}
 
 });
