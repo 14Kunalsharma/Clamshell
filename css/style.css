@@ -880,19 +880,40 @@ body{
 .tags span {
   cursor: pointer;
   transition: all 0.25s ease;
-  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.28);
+  color: #fff;
 }
 
 .tags span:hover {
-  background: rgba(255, 255, 255, 0.45);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.75);   /* darker */
+  color: #222;                            /* text dark */
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 
+    0 8px 20px rgba(0,0,0,0.25),
+    0 0 0 1px rgba(255,255,255,0.6) inset;
 }
 
-.tags span.active {
-  background: white;
-  color: #333;
-  font-weight: 600;
+.tags span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  background: linear-gradient(
+    90deg,
+    rgba(94,200,248,0.6),
+    rgba(255,123,202,0.6)
+  );
+}
+
+.tags span:hover::after {
+  opacity: 0.35;
+}
+
+.tags span {
+  position: relative;
+  overflow: hidden;
 }
 
 
