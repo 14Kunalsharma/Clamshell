@@ -946,6 +946,14 @@ body{
   width: 100%;
 }
 
+.login-form-hidden {
+    display: none;
+}
+
+.front-page-login-button-div {
+    margin-top: 20px;
+}
+
 
 
 
