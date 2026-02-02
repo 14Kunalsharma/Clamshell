@@ -4,39 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clamshell</title>
+
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google SSO -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body class="background">
 
-    <div class="login-form-hidden">
-        <form class="login-form">
-            <input class="login-field" type="text" id="user-id" placeholder="User ID">
-            <input class="login-field" type="password" id="password" placeholder="Password">
-        </form>
+    <div class="front-page-container">
 
-        <button class="login-button" id="login-btn">Login</button>
-
-        <div class="or-divider">OR</div>
-
-        <div id="g_id_onload"
-             data-client_id="YOUR_GOOGLE_CLIENT_ID"
-             data-callback="handleGoogleSSO"
-             data-auto_prompt="false">
+        <!-- background image -->
+        <div class="background-img">
+            <img src="assets/Group 6.png" alt="background">
         </div>
 
-        <div class="g_id_signin"
-             data-type="standard"
-             data-size="large"
-             data-theme="outline"
-             data-text="signin_with"
-             data-shape="rectangular">
+        <!-- LOGIN BOX -->
+        <div class="login-form-hidden">
+
+            <form class="login-form">
+                <input
+                    class="login-field"
+                    type="text"
+                    id="user-id"
+                    placeholder="User ID"
+                >
+
+                <input
+                    class="login-field"
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                >
+            </form>
+
+            <!-- NORMAL LOGIN -->
+            <button class="login-button" id="login-btn">
+                Login
+            </button>
+
+            <div class="or-divider">OR</div>
+
+            <!-- GOOGLE SSO CONFIG -->
+            <div
+                id="g_id_onload"
+                data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                data-callback="handleGoogleSSO"
+                data-auto_prompt="false">
+            </div>
+
+            <!-- GOOGLE BUTTON -->
+            <div
+                class="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="signin_with"
+                data-shape="rectangular">
+            </div>
+
+            <p id="login-error"></p>
         </div>
 
-        <p id="login-error"></p>
     </div>
 
     <script src="js/script.js"></script>
 </body>
 </html>
+
