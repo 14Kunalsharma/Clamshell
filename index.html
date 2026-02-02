@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clamshell</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body class="background">
@@ -19,6 +20,18 @@
                 <input class="login-field" type="text" id="user-id" name="user-id" placeholder="User ID">
                 <input class="login-field" type="password" id="password" name="password" placeholder="Password">
             </form>
+
+            <button class="login-button" id="login-btn">Login</button>
+            <div class="or-divider">OR</div>
+
+            <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID" data-callback="handleGoogleLogin">
+            </div>
+
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with"
+                data-shape="rectangular">
+            </div>
+
+            <p id="login-error"></p>
         </div>
         <div class="front-page-login-button-div">
             <button class="login-button" id="login-btn">Login</button>
@@ -28,4 +41,3 @@
 </body>
 
 </html>
-
