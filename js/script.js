@@ -28,13 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
       LOGIN PAGE
   ===================================================== */
+  const showLoginBtn = document.getElementById("show-login-btn");
+  const loginBox = document.getElementById("login-box");
+  const continueBtn = document.getElementById("continue-btn");
 
-const loginBtn = document.getElementById("login-btn");
-const loginBox = document.getElementById("login-box");
+  // Initially hide login form
+  loginBox.style.display = "none";
 
-if (loginBtn) {
-  loginBtn.addEventListener("click", () => {
+  // Show login form on Login click
+  showLoginBtn.addEventListener("click", () => {
+    loginBox.style.display = "flex";   // or block (CSS pe depend)
+    showLoginBtn.style.display = "none";
+  });
 
+  // Continue button logic
+  continueBtn.addEventListener("click", () => {
     const userId = document.getElementById("user-id").value.trim();
     const password = document.getElementById("password").value.trim();
 
@@ -43,33 +51,38 @@ if (loginBtn) {
       return;
     }
 
-    window.location.href = "main-dashboard.html";
+    console.log("Login Success:", userId);
+
+    // next page
+    // window.location.href = "dashboard.html";
   });
-}
-  /* =====================================================
-      ELEMENTS
-  ===================================================== */
 
-  const items = document.querySelectorAll(".sidebar-section li");
-  const contentArea = document.getElementById("content-area");
-  const mainCards = document.querySelector(".cards");
-  const allProductsBtn = document.getElementById("all-products-btn");
-  const dashboardExtras = document.getElementById("dashboard-extras");
-  const homeIcon = document.getElementById("home-icon");
-  const searchInput = document.querySelector(".search");
+});
 
-  /* =====================================================
-      LOAD DEFAULT
-  ===================================================== */
-  showWelcomeNancy();
+/* =====================================================
+    ELEMENTS
+===================================================== */
 
-  /* =====================================================
-      FUNCTIONS
-  ===================================================== */
+const items = document.querySelectorAll(".sidebar-section li");
+const contentArea = document.getElementById("content-area");
+const mainCards = document.querySelector(".cards");
+const allProductsBtn = document.getElementById("all-products-btn");
+const dashboardExtras = document.getElementById("dashboard-extras");
+const homeIcon = document.getElementById("home-icon");
+const searchInput = document.querySelector(".search");
 
-  function showWelcomeNancy() {
+/* =====================================================
+    LOAD DEFAULT
+===================================================== */
+showWelcomeNancy();
 
-    contentArea.innerHTML = `
+/* =====================================================
+    FUNCTIONS
+===================================================== */
+
+function showWelcomeNancy() {
+
+  contentArea.innerHTML = `
     <section class="welcome-card">
       <h1>Welcome Nancy!</h1>
 
@@ -92,51 +105,51 @@ if (loginBtn) {
     </section>
   `;
 
-    mainCards.style.display = "grid";
-    dashboardExtras.style.display = "block";
-  }
+  mainCards.style.display = "grid";
+  dashboardExtras.style.display = "block";
+}
 
-  if (homeIcon) {
-    homeIcon.addEventListener("click", () => {
+if (homeIcon) {
+  homeIcon.addEventListener("click", () => {
 
-      // sidebar ke active items hatao
-      items.forEach(i => i.classList.remove("active"));
+    // sidebar ke active items hatao
+    items.forEach(i => i.classList.remove("active"));
 
-      // HOME PAGE LOAD
-      showWelcomeNancy();
-    });
-  }
+    // HOME PAGE LOAD
+    showWelcomeNancy();
+  });
+}
 
-  function showWelcomeSelect() {
+function showWelcomeSelect() {
 
-    contentArea.innerHTML = `
+  contentArea.innerHTML = `
     <section class="welcome-card">
       <h1>Welcome Select</h1>
     </section>
   `;
 
-    dashboardExtras.style.display = "none";
-  }
+  dashboardExtras.style.display = "none";
+}
 
-  /* =====================================================
-     MULTI CARD PAGE (Companies)
-  ===================================================== */
-  function showSearchResults(results) {
+/* =====================================================
+   MULTI CARD PAGE (Companies)
+===================================================== */
+function showSearchResults(results) {
 
-    if (results.length === 0) {
-      contentArea.innerHTML = `
+  if (results.length === 0) {
+    contentArea.innerHTML = `
       <section class="welcome-card">
         <h1>No results found</h1>
       </section>
     `;
-      dashboardExtras.style.display = "none";
-      return;
-    }
+    dashboardExtras.style.display = "none";
+    return;
+  }
 
-    let cardsHTML = "";
+  let cardsHTML = "";
 
-    results.forEach(item => {
-      cardsHTML += `
+  results.forEach(item => {
+    cardsHTML += `
       <div class="card pink company-udemy">
         <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png">
         <div class="udemy-body">
@@ -145,9 +158,9 @@ if (loginBtn) {
         </div>
       </div>
     `;
-    });
+  });
 
-    contentArea.innerHTML = `
+  contentArea.innerHTML = `
     <section class="welcome-card">
       <h1>Search Results</h1>
     </section>
@@ -156,15 +169,15 @@ if (loginBtn) {
     </div>
   `;
 
-    dashboardExtras.style.display = "none";
-  }
+  dashboardExtras.style.display = "none";
+}
 
-  function showCompanyPage(title, cardsArray) {
+function showCompanyPage(title, cardsArray) {
 
-    let cardsHTML = "";
+  let cardsHTML = "";
 
-    cardsArray.forEach(name => {
-      cardsHTML += `
+  cardsArray.forEach(name => {
+    cardsHTML += `
   <div class="card pink company-udemy">
 
     <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png">
@@ -197,9 +210,9 @@ if (loginBtn) {
 
   </div>
 `;
-    });
+  });
 
-    contentArea.innerHTML = `
+  contentArea.innerHTML = `
     <section class="welcome-card">
       <h1>${title}</h1>
     </section>
@@ -209,16 +222,16 @@ if (loginBtn) {
     </div>
   `;
 
-    dashboardExtras.style.display = "none";
-  }
+  dashboardExtras.style.display = "none";
+}
 
-  /* =====================================================
-     SINGLE PAGE
-  ===================================================== */
+/* =====================================================
+   SINGLE PAGE
+===================================================== */
 
-  function showSinglePage(title) {
+function showSinglePage(title) {
 
-    contentArea.innerHTML = `
+  contentArea.innerHTML = `
     <section class="welcome-card">
       <h1>${title}</h1>
     </section>
@@ -231,90 +244,90 @@ if (loginBtn) {
     </div>
   `;
 
-    dashboardExtras.style.display = "none";
-  }
+  dashboardExtras.style.display = "none";
+}
 
-  /* =====================================================
-      SIDEBAR CLICK
-  ===================================================== */
+/* =====================================================
+    SIDEBAR CLICK
+===================================================== */
 
-  items.forEach(item => {
+items.forEach(item => {
 
-    item.addEventListener("click", () => {
+  item.addEventListener("click", () => {
 
-      const page = item.dataset.page.toLowerCase();
+    const page = item.dataset.page.toLowerCase();
 
-      items.forEach(i => i.classList.remove("active"));
-      item.classList.add("active");
-
-      if (page === "welcome") showWelcomeSelect();
-
-      else if (page === "language") showSinglePage("Language Select");
-
-      else if (page === "role") showSinglePage("Role Selection");
-
-      else if (page === "mars") {
-        showCompanyPage("Mars", [
-          "Prompt Engineering",
-          "AI at Mars",
-          "Asset Health Check",
-          "Supplier Trust Guide",
-          "Commercial Infographic"
-        ]);
-      }
-
-      else if (page === "eisner") {
-        showCompanyPage("Eisner Amper", [
-          "Client Portal",
-          "Individual Engagement Letter",
-          "SAP"
-        ]);
-      }
-
-      else if (page === "friesland") {
-        showCompanyPage("Friesland Campina", [
-          "TM Road Freight",
-          "TM Ocean Freight",
-          "TM Transport Settlement",
-          "Foreign Trade",
-          "Gen Course"
-        ]);
-      }
-
-      else if (page === "attestation") showSinglePage("Attestation");
-
-      else showSinglePage("Coming Soon");
-
-    });
-
-  });
-
-  /* =====================================================
-      ALL PRODUCTS BUTTON
-  ===================================================== */
-
-  allProductsBtn.addEventListener("click", () => {
     items.forEach(i => i.classList.remove("active"));
-    showWelcomeNancy();
-  });
+    item.classList.add("active");
 
-  /* =====================================================
-      CARD CLICK
-  ===================================================== */
+    if (page === "welcome") showWelcomeSelect();
 
-  document.body.addEventListener("click", function (e) {
+    else if (page === "language") showSinglePage("Language Select");
 
-    const card = e.target.closest(".card");
+    else if (page === "role") showSinglePage("Role Selection");
 
-    if (card && card.dataset.link) {
-      window.location.href = card.dataset.link;
+    else if (page === "mars") {
+      showCompanyPage("Mars", [
+        "Prompt Engineering",
+        "AI at Mars",
+        "Asset Health Check",
+        "Supplier Trust Guide",
+        "Commercial Infographic"
+      ]);
     }
 
+    else if (page === "eisner") {
+      showCompanyPage("Eisner Amper", [
+        "Client Portal",
+        "Individual Engagement Letter",
+        "SAP"
+      ]);
+    }
+
+    else if (page === "friesland") {
+      showCompanyPage("Friesland Campina", [
+        "TM Road Freight",
+        "TM Ocean Freight",
+        "TM Transport Settlement",
+        "Foreign Trade",
+        "Gen Course"
+      ]);
+    }
+
+    else if (page === "attestation") showSinglePage("Attestation");
+
+    else showSinglePage("Coming Soon");
+
   });
 
-  /* =====================================================
-      SEARCH FUNCTIONALITY
-  ===================================================== */
+});
+
+/* =====================================================
+    ALL PRODUCTS BUTTON
+===================================================== */
+
+allProductsBtn.addEventListener("click", () => {
+  items.forEach(i => i.classList.remove("active"));
+  showWelcomeNancy();
+});
+
+/* =====================================================
+    CARD CLICK
+===================================================== */
+
+document.body.addEventListener("click", function (e) {
+
+  const card = e.target.closest(".card");
+
+  if (card && card.dataset.link) {
+    window.location.href = card.dataset.link;
+  }
+
+});
+
+/* =====================================================
+    SEARCH FUNCTIONALITY
+===================================================== */
 
 /* =====================================================
     SEARCH FUNCTIONALITY (GLOBAL)
@@ -372,28 +385,28 @@ if (searchInput) {
 }
 
 
-  const profileIcon = document.getElementById("profile-icon");
-  const profileMenu = document.getElementById("profile-menu");
-  const logoutBtn = document.getElementById("logout-btn");
+const profileIcon = document.getElementById("profile-icon");
+const profileMenu = document.getElementById("profile-menu");
+const logoutBtn = document.getElementById("logout-btn");
 
-  if (profileIcon) {
-    profileIcon.addEventListener("click", (e) => {
-      e.stopPropagation();
-      profileMenu.classList.toggle("show");
-    });
-  }
-
-  // click outside → close menu
-  document.addEventListener("click", () => {
-    profileMenu.classList.remove("show");
+if (profileIcon) {
+  profileIcon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    profileMenu.classList.toggle("show");
   });
+}
 
-  // logout
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      window.location.href = "login.html";
-    });
-  }
+// click outside → close menu
+document.addEventListener("click", () => {
+  profileMenu.classList.remove("show");
+});
+
+// logout
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    window.location.href = "login.html";
+  });
+}
 function handleGoogleSSO(response) {
   const token = response.credential;
 
@@ -406,4 +419,3 @@ function handleGoogleSSO(response) {
   window.location.href = "main-dashboard.html";
 }
 
-});
