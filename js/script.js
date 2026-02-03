@@ -1,42 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-/* =========================
-   LOGIN PAGE
-========================= */
+  const showLoginBtn = document.getElementById("show-login-btn");
+  const loginBox = document.getElementById("login-box");
+  const continueBtn = document.getElementById("continue-btn");
 
-const showLoginBtn = document.getElementById("show-login-btn");
-const loginBox = document.getElementById("login-box");
-const continueBtn = document.getElementById("continue-btn");
+  if (loginBox) loginBox.style.display = "none";
 
-// Login form hide initially
-if (loginBox) {
-  loginBox.style.display = "none";
-}
+  if (showLoginBtn && loginBox) {
+    showLoginBtn.addEventListener("click", () => {
+      loginBox.style.display = "flex";
+      showLoginBtn.style.display = "none";
+    });
+  }
 
-// Show login form
-if (showLoginBtn && loginBox) {
-  showLoginBtn.addEventListener("click", () => {
-    loginBox.style.display = "flex";
-    showLoginBtn.style.display = "none";
-  });
-}
-// Continue button
-if (continueBtn) {
-  continueBtn.addEventListener("click", () => {
+  if (continueBtn) {
+    continueBtn.addEventListener("click", () => {
 
-    const userId = document.getElementById("user-id").value.trim();
-    const password = document.getElementById("password").value.trim();
+      const userId = document.getElementById("user-id")?.value.trim();
+      const password = document.getElementById("password")?.value.trim();
 
-    if (!userId || !password) {
-      alert("Please enter User ID and Password");
-      return;
-    }
+      if (!userId || !password) {
+        alert("Please enter User ID and Password");
+        return;
+      }
 
-    console.log("Login Success:", userId);
+      window.location.href = "main-dashboard.html";
+    });
+  }
 
-    window.location.href = "main-dashboard.html";
-  });
-}
+});
+
+
+window.handleGoogleSSO = function(response) {
+  console.log("Google Token:", response.credential);
+  window.location.href = "main-dashboard.html";
+};
+
 
 /* =========================
    GOOGLE SSO
