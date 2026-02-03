@@ -1,67 +1,88 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* =========================
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+const showLoginBtn = document.getElementById("show-login-btn");
+const loginBox = document.getElementById("login-box");
+const continueBtn = document.getElementById("continue-btn");
+
+// Login form hide initially
+if (loginBox) loginBox.style.display = "none";
+
+// Show login form
+if (showLoginBtn) {
+  showLoginBtn.addEventListener("click", () => {
+    loginBox.style.display = "flex";
+    showLoginBtn.style.display = "none";
+  });
+}
+
+// Continue button
+if (continueBtn) {
+  continueBtn.addEventListener("click", () => {
+
+    const userId = document.getElementById("user-id").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!userId || !password) {
+      alert("Please enter User ID and Password");
+      return;
+    }
+
+    console.log("Login Success:", userId);
+
+    window.location.href = "main-dashboard.html";
+  });
+}
+
+/* =========================
+   GOOGLE SSO
+========================= */
+
+window.handleGoogleSSO = function(response) {
+  const token = response.credential;
+  console.log("Google Token:", token);
+
+  window.location.href = "main-dashboard.html";
+};
+
+/* =====================================================
+   DASHBOARD CODE (Runs only on dashboard page)
+===================================================== */
+
+if (document.getElementById("content-area")) {
+
+/* =========================
  GLOBAL COURSE DATA
 ========================= */
 
-  const ALL_COURSES = {
-    mars: [
-      "Prompt Engineering",
-      "AI at Mars",
-      "Asset Health Check",
-      "Supplier Trust Guide",
-      "Commercial Infographic"
-    ],
-    eisner: [
-      "Client Portal",
-      "Individual Engagement Letter",
-      "SAP"
-    ],
-    friesland: [
-      "TM Road Freight",
-      "TM Ocean Freight",
-      "TM Transport Settlement",
-      "Foreign Trade",
-      "Gen Course"
-    ]
-  };
+const ALL_COURSES = {
+  mars: [
+    "Prompt Engineering",
+    "AI at Mars",
+    "Asset Health Check",
+    "Supplier Trust Guide",
+    "Commercial Infographic"
+  ],
+  eisner: [
+    "Client Portal",
+    "Individual Engagement Letter",
+    "SAP"
+  ],
+  friesland: [
+    "TM Road Freight",
+    "TM Ocean Freight",
+    "TM Transport Settlement",
+    "Foreign Trade",
+    "Gen Course"
+  ]
+};
 
-  /* =====================================================
-      LOGIN PAGE
-  ===================================================== */
-  const showLoginBtn = document.getElementById("show-login-btn");
-  const loginBox = document.getElementById("login-box");
-  const continueBtn = document.getElementById("continue-btn");
-
-  // Initially hide login form
-  loginBox.style.display = "none";
-
-  // Show login form on Login click
-  showLoginBtn.addEventListener("click", () => {
-    loginBox.style.display = "flex";   // or block (CSS pe depend)
-    showLoginBtn.style.display = "none";
-  });
-
-  // Continue button logic
-continueBtn.addEventListener("click", () => {
-  const userId = document.getElementById("user-id").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  if (!userId || !password) {
-    alert("Please enter User ID and Password");
-    return;
-  }
-
-  console.log("Login Success:", userId);
-
-  // next page
-  window.location.href = "dashboard.html";
-});
-
-});
-
-/* =====================================================
-    ELEMENTS
-===================================================== */
+/* =========================
+ ELEMENTS
+========================= */
 
 const items = document.querySelectorAll(".sidebar-section li");
 const contentArea = document.getElementById("content-area");
