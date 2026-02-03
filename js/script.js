@@ -29,30 +29,31 @@ document.addEventListener("DOMContentLoaded", () => {
       LOGIN PAGE
   ===================================================== */
 
-  const loginBtn = document.getElementById("login-btn");
+const loginBtn = document.getElementById("login-btn");
+const loginBox = document.getElementById("login-box");
 
-  if (loginBtn) {
-    loginBtn.addEventListener("click", function () {
+if (loginBtn) {
+  loginBtn.addEventListener("click", function () {
 
-      const formBox = document.querySelector(".login-form-hidden");
+    if (this.innerText === "Login") {
+      loginBox.style.display = "block";
+      this.innerText = "Continue";
+      loginBox.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
 
-      if (this.innerText === "Login") {
-        formBox.style.display = "block";
-        this.innerText = "Continue";
-        return;
-      }
+    const userId = document.getElementById("user-id").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-      const userId = document.getElementById("user-id")?.value.trim();
-      const password = document.getElementById("password")?.value.trim();
+    if (!userId || !password) {
+      alert("Please enter User ID and Password");
+      return;
+    }
 
-      if (!userId || !password) {
-        alert("Please enter User ID and Password");
-        return;
-      }
+    window.location.href = "main-dashboard.html";
+  });
+}
 
-      window.location.href = "main-dashboard.html";
-    });
-  }
 
   /* =====================================================
       ELEMENTS
