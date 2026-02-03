@@ -42,20 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Continue button logic
-  continueBtn.addEventListener("click", () => {
-    const userId = document.getElementById("user-id").value.trim();
-    const password = document.getElementById("password").value.trim();
+continueBtn.addEventListener("click", () => {
+  const userId = document.getElementById("user-id").value.trim();
+  const password = document.getElementById("password").value.trim();
 
-    if (!userId || !password) {
-      alert("Please enter User ID and Password");
-      return;
-    }
+  if (!userId || !password) {
+    alert("Please enter User ID and Password");
+    return;
+  }
 
-    console.log("Login Success:", userId);
+  console.log("Login Success:", userId);
 
-    // next page
-    // window.location.href = "dashboard.html";
-  });
+  // next page
+  window.location.href = "dashboard.html";
+});
 
 });
 
