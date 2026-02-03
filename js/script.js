@@ -33,14 +33,7 @@ const loginBtn = document.getElementById("login-btn");
 const loginBox = document.getElementById("login-box");
 
 if (loginBtn) {
-  loginBtn.addEventListener("click", function () {
-
-    if (this.innerText === "Login") {
-      loginBox.style.display = "block";
-      this.innerText = "Continue";
-      loginBox.scrollIntoView({ behavior: "smooth" });
-      return;
-    }
+  loginBtn.addEventListener("click", () => {
 
     const userId = document.getElementById("user-id").value.trim();
     const password = document.getElementById("password").value.trim();
@@ -53,8 +46,6 @@ if (loginBtn) {
     window.location.href = "main-dashboard.html";
   });
 }
-
-
   /* =====================================================
       ELEMENTS
   ===================================================== */
