@@ -64,10 +64,6 @@ body{
     font-size: 15px;
 }
 
-.login-form-hidden {
-    display: none;
-}
-
 .login-form {
 
     display: flex;
@@ -953,6 +949,8 @@ body{
 .front-page-login-button-div {
     margin-top: 20px;
 }
+
+
 
 
 
