@@ -950,6 +950,16 @@ body{
     margin-top: 20px;
 }
 
+.continue-btn {
+  margin-top: 10px;
+}
+
+.or-divider {
+  margin: 14px 0 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
 
 
 
