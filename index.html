@@ -2,60 +2,64 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clamshell</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clamshell</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
-    <!-- Google SSO -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body class="background">
 
-    <div class="front-page-container">
+<div class="front-page-container">
 
-        <!-- background image -->
-        <div class="background-img">
-            <img src="assets/Group 6.png" alt="background">
+    <div class="background-img">
+        <img src="assets/Group 6.png" alt="background">
+    </div>
+
+    <!-- Login Button -->
+    <div class="front-page-login-button-div">
+        <button class="login-button" id="show-login-btn">
+            Login
+        </button>
+    </div>
+
+    <!-- Login Box -->
+    <div class="login-form-hidden" id="login-box">
+
+        <form class="login-form">
+            <input class="login-field" type="text" id="user-id" placeholder="User ID">
+            <input class="login-field" type="password" id="password" placeholder="Password">
+        </form>
+
+        <!-- Continue -->
+        <button class="login-button continue-btn" id="continue-btn">
+            Continue
+        </button>
+
+        <!-- OR -->
+        <div class="or-divider">OR</div>
+
+        <!-- Google SSO -->
+        <div id="g_id_onload"
+            data-client_id="YOUR_GOOGLE_CLIENT_ID"
+            data-callback="handleGoogleSSO"
+            data-auto_prompt="false">
         </div>
 
-        <!-- 👉 LOGIN BUTTON (VISIBLE) -->
-        <div class="front-page-login-button-div">
-            <button class="login-button" id="show-login-btn">
-                Login
-            </button>
+        <div class="g_id_signin"
+            data-type="standard"
+            data-size="large"
+            data-theme="outline">
         </div>
 
-        <div class="login-form-hidden" id="login-box">
+    </div>
 
-            <form class="login-form">
-                <input class="login-field" type="text" id="user-id" placeholder="User ID">
+</div>
 
-                <input class="login-field" type="password" id="password" placeholder="Password">
-            </form>
-
-            <!-- CONTINUE BUTTON (now below password) -->
-            <button class="login-button continue-btn" id="continue-btn">
-                Continue
-            </button>
-
-            <!-- OR -->
-            <div class="or-divider">OR</div>
-
-            <!-- GOOGLE SSO -->
-            <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID" data-callback="handleGoogleSSO"
-                data-auto_prompt="false">
-            </div>
-
-            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline">
-            </div>
-
-        </div>
-
-
-        <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
-
 </html>
+
