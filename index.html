@@ -10,66 +10,50 @@
     <!-- Google SSO -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
-
 <body class="background">
 
-    <div class="front-page-container">
+  <div class="front-page-container">
 
-        <!-- background image -->
-        <div class="background-img">
-            <img src="assets/Group 6.png" alt="background">
-        </div>
+    <!-- background image -->
+    <div class="background-img">
+      <img src="assets/Group 6.png" alt="background">
+    </div>
 
-        <!-- LOGIN BOX -->
-        <div class="login-form-hidden">
+    <!-- 👉 LOGIN BUTTON (VISIBLE) -->
+    <div class="front-page-login-button-div">
+      <button class="login-button" id="login-btn">
+        Login
+      </button>
+    </div>
 
-            <form class="login-form">
-                <input
-                    class="login-field"
-                    type="text"
-                    id="user-id"
-                    placeholder="User ID"
-                >
+    <!-- 👉 LOGIN FORM (HIDDEN) -->
+    <div class="login-form-hidden" id="login-box">
 
-                <input
-                    class="login-field"
-                    type="password"
-                    id="password"
-                    placeholder="Password"
-                >
-            </form>
+      <form class="login-form">
+        <input class="login-field" type="text" id="user-id" placeholder="User ID">
+        <input class="login-field" type="password" id="password" placeholder="Password">
+      </form>
 
-            <!-- NORMAL LOGIN -->
-            <button class="login-button" id="login-btn">
-                Login
-            </button>
+      <div class="or-divider">OR</div>
 
-            <div class="or-divider">OR</div>
+      <!-- GOOGLE SSO -->
+      <div
+        id="g_id_onload"
+        data-client_id="YOUR_GOOGLE_CLIENT_ID"
+        data-callback="handleGoogleSSO"
+        data-auto_prompt="false">
+      </div>
 
-            <!-- GOOGLE SSO CONFIG -->
-            <div
-                id="g_id_onload"
-                data-client_id="YOUR_GOOGLE_CLIENT_ID"
-                data-callback="handleGoogleSSO"
-                data-auto_prompt="false">
-            </div>
-
-            <!-- GOOGLE BUTTON -->
-            <div
-                class="g_id_signin"
-                data-type="standard"
-                data-size="large"
-                data-theme="outline"
-                data-text="signin_with"
-                data-shape="rectangular">
-            </div>
-
-            <p id="login-error"></p>
-        </div>
+      <div
+        class="g_id_signin"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline">
+      </div>
 
     </div>
 
-    <script src="js/script.js"></script>
-</body>
-</html>
+  </div>
 
+  <script src="js/script.js"></script>
+</body>
