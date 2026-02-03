@@ -38,17 +38,6 @@ window.handleGoogleSSO = function(response) {
 
 
 /* =========================
-   GOOGLE SSO
-========================= */
-
-window.handleGoogleSSO = function(response) {
-  const token = response.credential;
-  console.log("Google Token:", token);
-
-  window.location.href = "main-dashboard.html";
-};
-
-/* =====================================================
    DASHBOARD CODE (Runs only on dashboard page)
 ===================================================== */
 
@@ -126,19 +115,8 @@ function showWelcomeNancy() {
     </section>
   `;
 
-  mainCards.style.display = "grid";
-  dashboardExtras.style.display = "block";
-}
-
-if (homeIcon) {
-  homeIcon.addEventListener("click", () => {
-
-    // sidebar ke active items hatao
-    items.forEach(i => i.classList.remove("active"));
-
-    // HOME PAGE LOAD
-    showWelcomeNancy();
-  });
+  if (mainCards) mainCards.style.display = "grid";
+  if (dashboardExtras) dashboardExtras.style.display = "block";
 }
 
 function showWelcomeSelect() {
@@ -149,7 +127,7 @@ function showWelcomeSelect() {
     </section>
   `;
 
-  dashboardExtras.style.display = "none";
+  if (dashboardExtras) dashboardExtras.style.display = "none";
 }
 
 /* =====================================================
@@ -163,7 +141,7 @@ function showSearchResults(results) {
         <h1>No results found</h1>
       </section>
     `;
-    dashboardExtras.style.display = "none";
+    if (dashboardExtras) dashboardExtras.style.display = "none";
     return;
   }
 
@@ -190,7 +168,7 @@ function showSearchResults(results) {
     </div>
   `;
 
-  dashboardExtras.style.display = "none";
+  if (dashboardExtras) dashboardExtras.style.display = "none";
 }
 
 function showCompanyPage(title, cardsArray) {
@@ -243,7 +221,7 @@ function showCompanyPage(title, cardsArray) {
     </div>
   `;
 
-  dashboardExtras.style.display = "none";
+  if (dashboardExtras) dashboardExtras.style.display = "none";
 }
 
 /* =====================================================
@@ -265,18 +243,29 @@ function showSinglePage(title) {
     </div>
   `;
 
-  dashboardExtras.style.display = "none";
+  if (dashboardExtras) dashboardExtras.style.display = "none";
 }
 
 /* =====================================================
     SIDEBAR CLICK
 ===================================================== */
 
+if (homeIcon) {
+  homeIcon.addEventListener("click", () => {
+
+    // sidebar ke active items hatao
+    items.forEach(i => i.classList.remove("active"));
+
+    // HOME PAGE LOAD
+    showWelcomeNancy();
+  });
+}
+
 items.forEach(item => {
 
   item.addEventListener("click", () => {
 
-    const page = item.dataset.page.toLowerCase();
+    const page = item.dataset.page?.toLowerCase();
 
     items.forEach(i => i.classList.remove("active"));
     item.classList.add("active");
@@ -288,31 +277,15 @@ items.forEach(item => {
     else if (page === "role") showSinglePage("Role Selection");
 
     else if (page === "mars") {
-      showCompanyPage("Mars", [
-        "Prompt Engineering",
-        "AI at Mars",
-        "Asset Health Check",
-        "Supplier Trust Guide",
-        "Commercial Infographic"
-      ]);
+      showCompanyPage("Mars", ALL_COURSES.mars);
     }
 
     else if (page === "eisner") {
-      showCompanyPage("Eisner Amper", [
-        "Client Portal",
-        "Individual Engagement Letter",
-        "SAP"
-      ]);
+      showCompanyPage("Eisner Amper", ALL_COURSES.eisner);
     }
 
     else if (page === "friesland") {
-      showCompanyPage("Friesland Campina", [
-        "TM Road Freight",
-        "TM Ocean Freight",
-        "TM Transport Settlement",
-        "Foreign Trade",
-        "Gen Course"
-      ]);
+      showCompanyPage("Friesland Campina", ALL_COURSES.friesland);
     }
 
     else if (page === "attestation") showSinglePage("Attestation");
@@ -327,10 +300,12 @@ items.forEach(item => {
     ALL PRODUCTS BUTTON
 ===================================================== */
 
-allProductsBtn.addEventListener("click", () => {
-  items.forEach(i => i.classList.remove("active"));
-  showWelcomeNancy();
-});
+if (allProductsBtn) {
+  allProductsBtn.addEventListener("click", () => {
+    items.forEach(i => i.classList.remove("active"));
+    showWelcomeNancy();
+  });
+}
 
 /* =====================================================
     CARD CLICK
@@ -345,10 +320,6 @@ document.body.addEventListener("click", function (e) {
   }
 
 });
-
-/* =====================================================
-    SEARCH FUNCTIONALITY
-===================================================== */
 
 /* =====================================================
     SEARCH FUNCTIONALITY (GLOBAL)
@@ -405,6 +376,9 @@ if (searchInput) {
   });
 }
 
+/* =====================================================
+    PROFILE MENU
+===================================================== */
 
 const profileIcon = document.getElementById("profile-icon");
 const profileMenu = document.getElementById("profile-menu");
@@ -419,7 +393,7 @@ if (profileIcon) {
 
 // click outside → close menu
 document.addEventListener("click", () => {
-  profileMenu.classList.remove("show");
+  if (profileMenu) profileMenu.classList.remove("show");
 });
 
 // logout
@@ -428,15 +402,7 @@ if (logoutBtn) {
     window.location.href = "login.html";
   });
 }
-function handleGoogleSSO(response) {
-  const token = response.credential;
 
-  // Abhi backend nahi hai → direct allow (demo)
-  // Backend aate hi yahin API call hogi
-
-  console.log("Google SSO Token:", token);
-
-  // TEMP: direct dashboard
-  window.location.href = "main-dashboard.html";
 }
+
 
