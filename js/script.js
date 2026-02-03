@@ -9,16 +9,17 @@ const loginBox = document.getElementById("login-box");
 const continueBtn = document.getElementById("continue-btn");
 
 // Login form hide initially
-if (loginBox) loginBox.style.display = "none";
+if (loginBox) {
+  loginBox.style.display = "none";
+}
 
 // Show login form
-if (showLoginBtn) {
+if (showLoginBtn && loginBox) {
   showLoginBtn.addEventListener("click", () => {
     loginBox.style.display = "flex";
     showLoginBtn.style.display = "none";
   });
 }
-
 // Continue button
 if (continueBtn) {
   continueBtn.addEventListener("click", () => {
