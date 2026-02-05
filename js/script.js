@@ -50,9 +50,6 @@ window.handleGoogleSSO = function(response) {
   window.location.href = "main-dashboard.html";
 };
 
-};
-
-
 /* =========================
    DASHBOARD CODE (Runs only on dashboard page)
 ===================================================== */
