@@ -32,8 +32,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 window.handleGoogleSSO = function(response) {
-  console.log("Google Token:", response.credential);
+
+  const payload = JSON.parse(atob(response.credential.split(".")[1]));
+  const email = payload.email;
+
+  console.log("Login Email:", email);
+
+  const isGmail = email.endsWith("@gmail.com");
+  const isClamshell = email.endsWith("@clamshelllearning.com");
+
+  if (!isGmail && !isClamshell) {
+    alert("Only Gmail or clamshelllearning.com emails allowed");
+    return;
+  }
+
+  // allowed login
   window.location.href = "main-dashboard.html";
+};
+
 };
 
 
