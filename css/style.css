@@ -966,7 +966,10 @@ body{
   font-weight: 600;
 }
 
-
+.card {
+  text-decoration: none;
+  color: inherit;
+}
 
 
 
