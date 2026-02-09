@@ -704,10 +704,21 @@ body{
 
 .profile {
   position: relative;
+  overflow: visible;
 }
 
 .profile-menu {
+  position: absolute;
+  top: -10px;
+  left: 60px;
+  width: 220px;
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   display: none;
+  z-index: 9999;
 }
 
 .profile-menu.show {
@@ -962,30 +973,6 @@ body{
 .sidebar {
   position: relative;
   z-index: 10;
-}
-
-.profile {
-  position: relative;
-  overflow: visible;
-}
-
-.profile-menu {
-  position: absolute;
-  top: -10px;
-  left: 60px;
-  z-index: 9999;
-  background: #ffffff;
-}
-
-.profile-menu {
-  bottom: 60px;
-  width: 220px;
-  border-radius: 12px;
-  padding: 12px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-  border: 1px solid #eee;
-  display: none;
-  z-index: 9999;
 }
 
 
