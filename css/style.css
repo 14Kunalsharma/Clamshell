@@ -706,23 +706,6 @@ body{
   position: relative;
 }
 
-.profile-menu {
-  position: absolute;
-  bottom: 60px;
-  left: 0;
-  width: 220px;
-
-  background: #ffffff;          /* ❌ transparent hata diya */
-  border-radius: 12px;
-  padding: 12px;
-
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-  border: 1px solid #eee;
-
-  display: none;
-  z-index: 9999;
-}
-
 .profile-menu p {
   margin: 0;
   font-size: 14px;
@@ -967,6 +950,36 @@ body{
   text-decoration: none;
   color: inherit;
 }
+
+.sidebar {
+  position: relative;
+  z-index: 10;
+}
+
+.profile {
+  position: relative;
+  overflow: visible;
+}
+
+.profile-menu {
+  position: absolute;
+  top: -10px;
+  left: 60px;
+  z-index: 9999;
+  background: #ffffff;
+}
+
+.profile-menu {
+  bottom: 60px;
+  width: 220px;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  border: 1px solid #eee;
+  display: none;
+  z-index: 9999;
+}
+
 
 
 
