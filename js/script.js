@@ -1,3 +1,6 @@
+/************************************************
+ LOGIN + GOOGLE SSO
+*************************************************/
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -25,19 +28,25 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      localStorage.setItem("user", JSON.stringify({
+        name: userId,
+        email: userId
+      }));
+
       window.location.href = "main-dashboard.html";
     });
   }
-
 });
 
+/************************************************
+ GOOGLE SSO CALLBACK
+*************************************************/
 
 window.handleGoogleSSO = function (response) {
 
   const payload = JSON.parse(atob(response.credential.split(".")[1]));
+  const name = payload.name;
   const email = payload.email;
-
-  console.log("Login Email:", email);
 
   const isGmail = email.endsWith("@gmail.com");
   const isClamshell = email.endsWith("@clamshelllearning.com");
@@ -47,19 +56,19 @@ window.handleGoogleSSO = function (response) {
     return;
   }
 
-  // allowed login
+  localStorage.setItem("user", JSON.stringify({
+    name,
+    email
+  }));
+
   window.location.href = "main-dashboard.html";
 };
 
-/* =========================
-   DASHBOARD CODE (Runs only on dashboard page)
-===================================================== */
+/************************************************
+ DASHBOARD CODE
+*************************************************/
 
 if (document.getElementById("content-area")) {
-
-  /* =========================
-   GLOBAL COURSE DATA
-  ========================= */
 
   const ALL_COURSES = {
     mars: [
@@ -83,10 +92,6 @@ if (document.getElementById("content-area")) {
     ]
   };
 
-  /* =========================
-   ELEMENTS
-  ========================= */
-
   const items = document.querySelectorAll(".sidebar-section li");
   const contentArea = document.getElementById("content-area");
   const mainCards = document.querySelector(".cards");
@@ -95,303 +100,119 @@ if (document.getElementById("content-area")) {
   const homeIcon = document.getElementById("home-icon");
   const searchInput = document.querySelector(".search");
 
-  /* =====================================================
-      LOAD DEFAULT
-  ===================================================== */
+  const profileName = document.getElementById("profile-name");
+  const profileEmail = document.getElementById("profile-email");
+  const profileIcon = document.getElementById("profile-icon");
+  const profileMenu = document.getElementById("profile-menu");
+  const logoutBtn = document.getElementById("logout-btn");
+
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  if (storedUser) {
+    if (profileName) profileName.textContent = storedUser.name;
+    if (profileEmail) profileEmail.textContent = storedUser.email;
+  }
+
   showWelcomeNancy();
 
-  /* =====================================================
-      FUNCTIONS
-  ===================================================== */
-
   function showWelcomeNancy() {
-
     contentArea.innerHTML = `
-    <section class="welcome-card">
-      <h1>Welcome Nancy!</h1>
-
-      <div class="tags">
-        <div class="t1">
-          <span>Storyline</span>
-          <span>HTML</span>
-          <span>Articulate</span>
-          <span>Figma</span>
-          <span>SB Link</span>
-        </div>
-
-        <div class="t2">
-          <span>VSB</span>
-          <span>PSD</span>
-          <span>SL Source</span>
-          <span>SL Link</span>
-        </div>
-      </div>
-    </section>
-  `;
-
+      <section class="welcome-card">
+        <h1>Welcome ${storedUser?.name || "User"}!</h1>
+      </section>
+    `;
     if (mainCards) mainCards.style.display = "grid";
     if (dashboardExtras) dashboardExtras.style.display = "block";
   }
 
   function showWelcomeSelect() {
-
     contentArea.innerHTML = `
-    <section class="welcome-card">
-      <h1>Welcome Select</h1>
-    </section>
-  `;
-
+      <section class="welcome-card">
+        <h1>Welcome Select</h1>
+      </section>
+    `;
     if (dashboardExtras) dashboardExtras.style.display = "none";
   }
 
-  /* =====================================================
-     MULTI CARD PAGE (Companies)
-  ===================================================== */
-  function showSearchResults(results) {
-
-    if (results.length === 0) {
-      contentArea.innerHTML = `
+  function showSinglePage(title) {
+    contentArea.innerHTML = `
       <section class="welcome-card">
-        <h1>No results found</h1>
+        <h1>${title}</h1>
       </section>
     `;
-      if (dashboardExtras) dashboardExtras.style.display = "none";
-      return;
-    }
-
-    let cardsHTML = "";
-
-    results.forEach(item => {
-      cardsHTML += `
-      <div class="card pink company-udemy">
-        <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png">
-        <div class="udemy-body">
-          <h4>${item.course}</h4>
-          <p class="udemy-author">${item.company}</p>
-        </div>
-      </div>
-    `;
-    });
-
-    contentArea.innerHTML = `
-    <section class="welcome-card">
-      <h1>Search Results</h1>
-    </section>
-    <div class="cards">
-      ${cardsHTML}
-    </div>
-  `;
-
     if (dashboardExtras) dashboardExtras.style.display = "none";
   }
 
   function showCompanyPage(title, cardsArray) {
-
     let cardsHTML = "";
-
-    cardsArray.forEach(name => {
+    cardsArray.forEach(course => {
       cardsHTML += `
-  <a href="mars.html" class="card pink company-udemy">
-  <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png">
-
-  <div class="udemy-body">
-    <h4>Prompt Engineering</h4>
-    <p class="udemy-author">By Clamshell Team</p>
-  </div>
-</a>
-`;
+        <div class="card pink">
+          <h4>${course}</h4>
+          <p>By Clamshell Team</p>
+        </div>
+      `;
     });
 
     contentArea.innerHTML = `
-    <section class="welcome-card">
-      <h1>${title}</h1>
-    </section>
-
-    <div class="cards">
-      ${cardsHTML}
-    </div>
-  `;
+      <section class="welcome-card">
+        <h1>${title}</h1>
+      </section>
+      <div class="cards">${cardsHTML}</div>
+    `;
 
     if (dashboardExtras) dashboardExtras.style.display = "none";
   }
-
-  /* =====================================================
-     SINGLE PAGE
-  ===================================================== */
-
-  function showSinglePage(title) {
-
-    contentArea.innerHTML = `
-    <section class="welcome-card">
-      <h1>${title}</h1>
-    </section>
-
-    <div class="cards">
-      <div class="card pink">
-        <h4>${title}</h4>
-        <p>Open</p>
-      </div>
-    </div>
-  `;
-
-    if (dashboardExtras) dashboardExtras.style.display = "none";
-  }
-
-  /* =====================================================
-      SIDEBAR CLICK
-  ===================================================== */
 
   if (homeIcon) {
     homeIcon.addEventListener("click", () => {
-
-      // sidebar ke active items hatao
       items.forEach(i => i.classList.remove("active"));
-
-      // HOME PAGE LOAD
       showWelcomeNancy();
     });
   }
 
   items.forEach(item => {
-
     item.addEventListener("click", () => {
-
-      const page = item.dataset.page?.toLowerCase();
 
       items.forEach(i => i.classList.remove("active"));
       item.classList.add("active");
 
+      const page = item.dataset.page;
+
       if (page === "welcome") showWelcomeSelect();
-
-      else if (page === "language") showSinglePage("Language Select");
-
-      else if (page === "role") showSinglePage("Role Selection");
-
-      else if (page === "mars") {
-        showCompanyPage("Mars", ALL_COURSES.mars);
-      }
-
-      else if (page === "eisner") {
-        showCompanyPage("Eisner Amper", ALL_COURSES.eisner);
-      }
-
-      else if (page === "friesland") {
-        showCompanyPage("Friesland Campina", ALL_COURSES.friesland);
-      }
-
-      else if (page === "attestation") showSinglePage("Attestation");
-
+      else if (page === "mars") showCompanyPage("Mars", ALL_COURSES.mars);
+      else if (page === "eisner") showCompanyPage("Eisner Amper", ALL_COURSES.eisner);
+      else if (page === "friesland") showCompanyPage("Friesland Campina", ALL_COURSES.friesland);
       else showSinglePage("Coming Soon");
-
     });
-
   });
-
-  /* =====================================================
-      ALL PRODUCTS BUTTON
-  ===================================================== */
 
   if (allProductsBtn) {
-    allProductsBtn.addEventListener("click", () => {
-      items.forEach(i => i.classList.remove("active"));
-      showWelcomeNancy();
-    });
+    allProductsBtn.addEventListener("click", showWelcomeNancy);
   }
-
-  /* =====================================================
-      CARD CLICK
-  ===================================================== */
-
-  document.body.addEventListener("click", function (e) {
-
-    const card = e.target.closest(".card");
-
-    if (card && card.dataset.link) {
-      window.location.href = card.dataset.link;
-    }
-
-  });
-
-  /* =====================================================
-      SEARCH FUNCTIONALITY (GLOBAL)
-  ===================================================== */
 
   if (searchInput) {
     searchInput.addEventListener("keyup", function () {
-
-      const value = this.value.toLowerCase().trim();
-
-      // empty search → home page wapas
-      if (value === "") {
+      if (this.value.trim() === "") {
         showWelcomeNancy();
-        return;
       }
-
-      let results = [];
-
-      /* ======================
-         HOME PAGE CARDS
-      ====================== */
-      const HOME_CARDS = [
-        "Low Code / No Code",
-        "Drone",
-        "Networking",
-        "Artificial Intelligence",
-        "Intelligent Automation"
-      ];
-
-      HOME_CARDS.forEach(card => {
-        if (card.toLowerCase().includes(value)) {
-          results.push({
-            company: "HOME",
-            course: card
-          });
-        }
-      });
-
-      /* ======================
-         COMPANY COURSES
-      ====================== */
-      Object.keys(ALL_COURSES).forEach(company => {
-        ALL_COURSES[company].forEach(course => {
-          if (course.toLowerCase().includes(value)) {
-            results.push({
-              company: company.toUpperCase(),
-              course
-            });
-          }
-        });
-      });
-
-      showSearchResults(results);
     });
   }
 
-  /* =====================================================
-      PROFILE MENU
-  ===================================================== */
-
-  const profileIcon = document.getElementById("profile-icon");
-  const profileMenu = document.getElementById("profile-menu");
-  const logoutBtn = document.getElementById("logout-btn");
-
   if (profileIcon) {
-    profileIcon.addEventListener("click", (e) => {
+    profileIcon.addEventListener("click", e => {
       e.stopPropagation();
       profileMenu.classList.toggle("show");
     });
   }
 
-  // click outside → close menu
   document.addEventListener("click", () => {
     if (profileMenu) profileMenu.classList.remove("show");
   });
 
-  // logout
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("user");
       window.location.href = "login.html";
     });
   }
-
 }
