@@ -706,6 +706,14 @@ body{
   position: relative;
 }
 
+.profile-menu {
+  display: none;
+}
+
+.profile-menu.show {
+  display: block;
+}
+
 .profile-menu p {
   margin: 0;
   font-size: 14px;
