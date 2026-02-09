@@ -140,8 +140,6 @@ body{
   border-right: 1px solid #eee;
   justify-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 50;
 }
 
 .logo {
@@ -524,7 +522,7 @@ body{
   opacity: 0;
   visibility: hidden;
   transition: 0.3s ease;
-  z-index: 30;
+  z-index: 9999;
 }
 
 .card:hover .hover-info{
@@ -624,7 +622,7 @@ body{
 }
 
 .card:hover{
-  z-index: 20;
+  z-index: 100000;
 }
 
 .simple-page{
@@ -706,21 +704,10 @@ body{
 
 .profile {
   position: relative;
-  overflow: visible;
 }
 
 .profile-menu {
-  position: absolute;
-  top: -10px;
-  left: 60px;
-  width: 220px;
-  padding: 12px;
-  background: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #eee;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   display: none;
-  z-index: 60;
 }
 
 .profile-menu.show {
@@ -977,18 +964,26 @@ body{
   z-index: 10;
 }
 
+.profile {
+  position: relative;
+  overflow: visible;
+}
 
+.profile-menu {
+  position: absolute;
+  top: -10px;
+  left: 60px;
+  z-index: 9999;
+  background: #ffffff;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.profile-menu {
+  bottom: 60px;
+  width: 220px;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  border: 1px solid #eee;
+  display: none;
+  z-index: 9999;
+}
