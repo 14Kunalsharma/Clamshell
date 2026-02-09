@@ -140,6 +140,8 @@ body{
   border-right: 1px solid #eee;
   justify-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 50;
 }
 
 .logo {
@@ -522,7 +524,7 @@ body{
   opacity: 0;
   visibility: hidden;
   transition: 0.3s ease;
-  z-index: 9999;
+  z-index: 30;
 }
 
 .card:hover .hover-info{
@@ -622,7 +624,7 @@ body{
 }
 
 .card:hover{
-  z-index: 100000;
+  z-index: 20;
 }
 
 .simple-page{
@@ -718,7 +720,7 @@ body{
   border: 1px solid #eee;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   display: none;
-  z-index: 9999;
+  z-index: 60;
 }
 
 .profile-menu.show {
