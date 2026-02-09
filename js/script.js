@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Please enter User ID and Password");
         return;
       }
-
+      localStorage.setItem("username", userId);
       window.location.href = "main-dashboard.html";
     });
   }
@@ -47,6 +47,8 @@ window.handleGoogleSSO = function (response) {
   }
 
   // allowed login
+  localStorage.setItem("username", payload.name || email.split("@")[0]);
+  localStorage.setItem("email", email);
   window.location.href = "main-dashboard.html";
 };
 
@@ -55,6 +57,21 @@ window.handleGoogleSSO = function (response) {
 ===================================================== */
 
 if (document.getElementById("content-area")) {
+const name = localStorage.getItem("username");
+const email = localStorage.getItem("email");
+
+const profileName = document.getElementById("profile-name");
+const profileEmail = document.getElementById("profile-email");
+
+if (profileName && name) {
+  profileName.innerText =
+    name.charAt(0).toUpperCase() + name.slice(1);
+}
+
+if (profileEmail) {
+  profileEmail.innerText = email || "";
+}
+
 
   /* =========================
    GLOBAL COURSE DATA
