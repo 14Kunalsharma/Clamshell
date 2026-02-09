@@ -702,30 +702,44 @@ body{
 }
 
 /* ===== PROFILE DROPDOWN FIX ===== */
+
 .profile {
-    position: relative; /* so dropdown positions relative to profile icon */
-    overflow: visible;  /* allow dropdown to overflow parent */
+  position: relative;
 }
 
-.profile-menu {
-    display: none;      /* hidden by default */
-    position: absolute;
-    top: 60px;          /* dropdown below the icon */
-    left: 60px;         /* slight offset */
-    width: 220px;
-    background: white;
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-    border: 1px solid #eee;
-    z-index: 9999;      /* always on top */
+.profile-menu p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
 }
 
-.profile-menu.active {
-    display: block;     /* toggled via JS */
+.profile-name {
+  font-weight: 600;
 }
 
+.profile-email {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 8px;
+}
 
+.profile-menu hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 8px 0;
+}
+
+.profile-menu a {
+  display: block;
+  padding: 8px 0;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.profile-menu a:hover {
+  color: #4f46e5;
+}
 
 .icon-item {
   position: relative;
@@ -943,3 +957,26 @@ body{
   z-index: 10;
 }
 
+.profile {
+  position: relative;
+  overflow: visible;
+}
+
+.profile-menu {
+  position: absolute;
+  top: -10px;
+  left: 60px;
+  z-index: 9999;
+  background: #ffffff;
+}
+
+.profile-menu {
+  bottom: 60px;
+  width: 220px;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  border: 1px solid #eee;
+  display: none;
+  z-index: 9999;
+}
