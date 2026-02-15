@@ -1007,3 +1007,49 @@ body{
   font-weight: 600;
 }
 
+/* Ensure the sidebar/nav stays above the content area */
+.sidebar, .navigation-bar {
+    position: relative;
+    z-index: 100; 
+}
+
+/* =================================================
+   THE FINAL STACKING ORDER OVERRIDE
+   ================================================= */
+
+/* 1. Lift the ENTIRE Left Sidebar (with icons) to the front layer */
+.dashboard > .sidebar:first-of-type,
+.dashboard > div.sidebar:nth-child(1) {
+    position: relative !important;
+    z-index: 99999 !important; /* Forces this entire container to the front */
+    overflow: visible !important; /* Critical: allows the menu to pop out of the sidebar */
+}
+
+/* 2. Force the Right Sidebar (with Search) to stay behind */
+.dashboard > aside.sidebar, 
+.dashboard > .sidebar:last-of-type {
+    position: relative !important;
+    z-index: 1 !important; /* Keeps this sidebar in the background */
+}
+
+/* 3. Ensure the Main Content area is also behind the profile menu */
+.content {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* 4. The Profile Menu itself */
+.profile-menu {
+    position: absolute !important;
+    z-index: 100000 !important; /* Highest layer in the dashboard */
+    top:30px;
+    left: 30px !important; /* Pushes menu out of the 100px sidebar width */
+    display: none; 
+}
+
+/* 5. Trigger classes for JS visibility */
+.profile-menu.show, 
+.profile-menu.active {
+    display: block !important;
+}
+
