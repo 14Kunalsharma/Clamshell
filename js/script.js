@@ -389,10 +389,9 @@ if (document.getElementById("content-area")) {
   });
 
   // logout
-  document.getElementById("logout-btn")?.addEventListener("click", () => {
-      localStorage.clear();
+ if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
       window.location.href = "index.html";
-    });
   }
 
 }
