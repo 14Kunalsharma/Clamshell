@@ -1053,7 +1053,7 @@ body{
     display: block !important;
 }
 
-.tabs spain:hover{
+.tabs span:hover{
     linear-gradient(
     to right,
     #a7c7f9,
