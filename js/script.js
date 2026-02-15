@@ -392,6 +392,6 @@ if (document.getElementById("content-area")) {
  if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       window.location.href = "index.html";
-  }
-
+    });
+}
 }
