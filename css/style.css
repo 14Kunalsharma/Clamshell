@@ -1053,3 +1053,13 @@ body{
     display: block !important;
 }
 
+.tabs spain:hover{
+    linear-gradient(
+    to right,
+    #a7c7f9,
+    #5ec8f8,
+    #7ed7d0,
+    #e8efb0,
+    #ffb6b6,
+    #f6b1d8 );
+}
