@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const showLoginBtn = document.getElementById("show-login-btn");
@@ -185,12 +184,12 @@ if (document.getElementById("content-area")) {
     if (dashboardExtras) dashboardExtras.style.display = "none";
   }
 
- function showCompanyPage(title, cardsArray) {
+  function showCompanyPage(title, cardsArray) {
 
-  let cardsHTML = "";
+    let cardsHTML = "";
 
-  cardsArray.forEach(name => {
-    cardsHTML += `
+    cardsArray.forEach(name => {
+      cardsHTML += `
       <div class="card pink company-udemy">
 
         <img src="assets/Screenshot 2024-08-09 at 3.50.33 AM 1.png">
@@ -202,9 +201,9 @@ if (document.getElementById("content-area")) {
 
       </div>
     `;
-  });
+    });
 
-  contentArea.innerHTML = `
+    contentArea.innerHTML = `
     <section class="welcome-card">
       <h1>${title}</h1>
     </section>
@@ -214,8 +213,8 @@ if (document.getElementById("content-area")) {
     </div>
   `;
 
-  if (dashboardExtras) dashboardExtras.style.display = "none";
-}
+    if (dashboardExtras) dashboardExtras.style.display = "none";
+  }
 
   /* =====================================================
      SINGLE PAGE
