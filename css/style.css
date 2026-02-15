@@ -302,9 +302,13 @@ body{
 }
 
 .card.pink { 
-  background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
+    background: linear-gradient(120deg,#F7F7F7, #858585 ); 
   overflow: visible;
   border-radius: 16px;
+}
+
+.card.pink:hover{
+    background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
 }
 
 .card.pink:hover img {
@@ -317,11 +321,21 @@ body{
   border-radius: 16px;
 }
 
+.card.yellow:hover{
+    background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
+}
+
+
 .card.dark {   
   background: linear-gradient(120deg,#F7F7F7, #858585 );
   overflow: hidden;
   border-radius: 16px;
 }
+
+.card.dark:hover{
+    background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
+}
+
 
 .card.gray {   
   background: linear-gradient(120deg,#F7F7F7, #858585 );
@@ -329,16 +343,30 @@ body{
   border-radius: 16px;
 }
 
+.card.gray:hover{
+    background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
+}
+
+
 .card.green {  
   background: linear-gradient(120deg,#F7F7F7, #858585 ); 
   overflow: hidden;
   border-radius: 16px;
 }
 
+.card.green:hover{
+    background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
+}
+
+
 .card.blue {  
   background: linear-gradient(120deg,#F7F7F7, #858585 );
   overflow: hidden;
   border-radius: 16px;
+}
+
+.card.blue:hover{
+    background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
 }
 
 .card.q { 
@@ -347,16 +375,30 @@ body{
   border-radius: 16px;
 }
 
+.card.q:hover{
+    background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
+}
+
+
 .card.W {
   background: linear-gradient(120deg,#F7F7F7, #858585 );
   overflow: hidden;
   border-radius: 16px;
 }
 
+.card.W:hover{
+    background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
+}
+
+
 .card.e {
   background: linear-gradient(120deg,#F7F7F7, #858585 ); 
   overflow: hidden;
   border-radius: 16px;
+}
+
+.card.e:hover{
+    background: linear-gradient(120deg, #FFC56F75, #FF7BCA);
 }
 
 .card img {
