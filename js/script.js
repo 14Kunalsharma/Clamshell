@@ -389,9 +389,9 @@ if (document.getElementById("content-area")) {
   });
 
   // logout
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      window.location.href = "login.html";
+  document.getElementById("logout-btn")?.addEventListener("click", () => {
+      localStorage.clear();
+      window.location.href = "index.html";
     });
   }
 
